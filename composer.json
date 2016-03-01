@@ -4,12 +4,9 @@
 		"yiisoft/yii2": ">=2.0.5",
 		"yiisoft/yii2-bootstrap": "*",
 		"yiisoft/yii2-swiftmailer": "*",
-		"bower-asset/admin-lte": "~2.3.0",
-		"bower-asset/font-awesome": "~4.4.0",
-		"kartik-v/yii2-widget-datetimepicker": "~1.4.0",
-		"kartik-v/yii2-widget-select2": "@dev",
-		"kartik-v/yii2-widget-rating": "*",
-		"kartik-v/yii2-markdown": "dev-master"
+		"almasaeed2010/adminlte": "~2.0",
+		"components/font-awesome": "~4.4.0",
+		"kartik-v/yii2-widget-datetimepicker": "~1.4.0"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",
@@ -40,9 +37,9 @@
 			"bower-asset-library": "vendor/bower"
 		}
 	},
-  	"name": "daibanglam/my-tool",
-  	"description": "The tool of daibanglam",
-  	"keywords": ["yii2", "personal tool"],
+  	"name": "onehome/blog",
+  	"description": "Onehome Blog System",
+  	"keywords": ["yii2", "blog"],
 	"type": "project",
 	"license": "BSD-3-Clause",
 	"homepage": "http://www.yiiframework.com/",

@@ -1,6 +1,3 @@
-# user script
-vendor-update.bat
-
 # phpstorm project files
 .idea
 
@@ -15,12 +12,6 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-# composer vendor dir
-/vendor
-
-# composer itself is not needed
-composer.phar
-
 # Mac DS_Store Files
 .DS_Store
 
@@ -28,3 +19,9 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+# composer vendor dir
+/vendor
+
+# upload directory
+/media
