@@ -1,0 +1,1 @@
+php ..\gu\export.php http://lamhq.com/ma/import.php

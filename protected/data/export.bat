@@ -1,0 +1,1 @@
+d:\program\mysql\bin\mysqldump -uroot myapp > data.sql
