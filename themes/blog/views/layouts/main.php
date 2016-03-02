@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\ArrayHelper;
-use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -24,12 +23,14 @@ use yii\widgets\Breadcrumbs;
 					'options'=>ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'options'),
 				])?>
 			<?php endif; ?>
+			
 			<?= $content ?>
+			
+			<?= app\widgets\SubscribeForm::widget() ?>
+			<?=	app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_BOTTOM]) ?>
 		</div><!-- // main -->
 		<?= $this->render('_footer') ?>
 	</div>
-	
-	<?= $this->blocks['before_body_end'] ?>
 <?php $this->endBody() ?>
 </body>
 </html>

@@ -7,7 +7,7 @@ use yii\web\Controller;
 use app\models\LoginForm;
 use app\models\AccountForm;
 
-class SiteController extends Controller {
+class PageController extends Controller {
 
 	public function actions() {
 		return [

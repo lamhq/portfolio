@@ -46,7 +46,6 @@ $config = [
 				return "$s1-$s2";
 			}
 		],						
-		'helper' => ['class' => 'app\components\Helper'],
 		'formatter' => ['class' => 'app\components\Formatter'],
 		'request' => [
 			// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -58,6 +57,7 @@ $config = [
 				'baseUrl' => '@web/themes/blog',
 				'pathMap' => [
 					'@app/views' => '@webroot/themes/blog/views',
+					'@app/widgets/views' => '@webroot/themes/blog/views/widgets',
 				],
 			],
 		]
@@ -66,7 +66,7 @@ $config = [
 //		'diary' => ['class' => 'diary\Module'],
 //    ],
 	'params' => [
-		'theme_skin' => 'skin-blue',
+		'date_format' => 'd F Y',	// 23 October 2015
 	],
 ];
 

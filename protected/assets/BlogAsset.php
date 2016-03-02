@@ -13,7 +13,7 @@ class BlogAsset extends AssetBundle
     ];
     
     public $js = [
-        'js/plugin.js'
+        'js/plugin.js',
     ];
 
     public $depends = [
