@@ -6,6 +6,8 @@ use Yii;
 use yii\web\Controller;
 use app\models\LoginForm;
 use app\models\AccountForm;
+use app\models\Post;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller {
 
@@ -67,4 +69,22 @@ class SiteController extends Controller {
 		return $this->render('account', ['model' => $model]);
 	}
 
+	public function actionSearch($s='') {
+		$query = Post::find()
+			->where('title LIKE :s OR content LIKE :s',[
+				':s'=>'%'.$s.'%',
+			]);
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+			'pagination' => [
+				'pageSize' => \Yii::$app->params['pageSize'],
+			],
+        ]);
+		$this->layout = '2col-right';
+		return $this->render('search', [
+            'search' => $s,
+            'dataProvider' => $dataProvider,
+		]);
+		
+	}
 }

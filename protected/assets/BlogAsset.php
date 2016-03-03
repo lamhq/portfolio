@@ -10,6 +10,7 @@ class BlogAsset extends AssetBundle
     public $css = [
         'css/plugin.css',
         'css/main.css',
+        'css/custom.css',
     ];
     
     public $js = [

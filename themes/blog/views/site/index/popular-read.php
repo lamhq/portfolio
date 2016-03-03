@@ -7,17 +7,7 @@ if (!$posts) return;
 <div class="row">
 	<div class="col-md-9">
 		<?php foreach($posts as $post): ?>
-		<div class="intro clearfix">
-			<figure><a href="<?= $post->url ?>" class="imgeffect"><img src="<?= $post->getImageUrl(236, 177) ?>" alt="" /></a></figure>
-			<div class="descript">
-				<?php if ($post->category): ?>
-				<p class="ico-trend"><?= $post->category->name ?></p>
-				<?php endif ?>
-				<h3><a href="<?= $post->url ?>"><?= $post->title ?></a></h3>
-				<p class="date">By <a href="#"><?= $post->author->username ?> on <a href="#"><?= $post->publishedDate ?></a></p>
-				<p><?= $post->short_content ?></p>
-			</div>
-		</div>
+		<?= $this->render('_post2', ['model'=>$post]) ?>
 		<?php endforeach; ?>
 	</div>
 	<div class="col-md-3">

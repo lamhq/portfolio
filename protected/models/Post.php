@@ -102,7 +102,7 @@ class Post extends \yii\db\ActiveRecord {
 
 	public function getUrl() {
 		$route = $this->type == self::TYPE_PAGE ? 'page/view' : 'post/view';
-		return Url::to([$route, 'slug' => $this->slug]);
+		return Url::to([$route, 'slug' => $this->slug], true);
 	}
 
 	static public function getUrlBySlug($slug) {
@@ -200,4 +200,10 @@ class Post extends \yii\db\ActiveRecord {
 			->limit(5)
 			->all();
 	}
+	
+	public function getImages()
+    {
+        return $this->hasMany(Banner::className(), ['id' => 'banner_id'])
+            ->viaTable('{{%post_banner}}', ['post_id' => 'id']);
+    }	
 }

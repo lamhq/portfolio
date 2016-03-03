@@ -16,11 +16,12 @@ class PostController extends Controller {
 		if (!$model) {
 			throw new \yii\web\HttpException(404, 'The requested page does not exist');
 		}
+		$model->view_count++;
+		$model->update(['view_count']);
 		$this->layout = '2col-right';
 		return $this->render('view', [
 			'post' => $model
 		]);
-
 	}
 
 }

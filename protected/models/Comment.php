@@ -11,7 +11,7 @@ use Yii;
  * @property string $content
  * @property integer $status
  * @property string $create_time
- * @property string $author
+ * @property string $author_id
  * @property string $post_id
  *
  * @property Post $post
@@ -33,9 +33,8 @@ class Comment extends \yii\db\ActiveRecord
     {
         return [
             [['content'], 'string'],
-            [['status', 'post_id'], 'integer'],
+            [['status', 'post_id', 'author_id'], 'integer'],
             [['create_time'], 'safe'],
-            [['author'], 'string', 'max' => 80]
         ];
     }
 
@@ -49,7 +48,7 @@ class Comment extends \yii\db\ActiveRecord
             'content' => 'Content',
             'status' => 'Status',
             'create_time' => 'Create Time',
-            'author' => 'Author',
+            'author_id' => 'Author',
             'post_id' => 'Post ID',
         ];
     }
@@ -60,5 +59,13 @@ class Comment extends \yii\db\ActiveRecord
     public function getPost()
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
+    }
+	
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAuthor()
+    {
+        return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
 }

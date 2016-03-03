@@ -66,7 +66,8 @@ $config = [
 //		'diary' => ['class' => 'diary\Module'],
 //    ],
 	'params' => [
-		'date_format' => 'd F Y',	// 23 October 2015
+		'dateFormat' => 'd F Y',	// 23 October 2015
+		'pageSize' => 20,
 	],
 ];
 

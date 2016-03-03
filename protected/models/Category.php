@@ -49,7 +49,7 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getPosts()
     {
-        return $this->hasMany(Post::className(), ['category_id' => 'id']);
+        return $this->hasMany(Post::className(), ['category_id' => 'id'])->orderBy('update_time DESC');
     }
 	
 	public function getUrl() {
