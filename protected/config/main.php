@@ -1,5 +1,5 @@
 <?php
-Yii::setAlias('@diary', realpath(__DIR__.'/../modules/diary'));
+Yii::setAlias('@backend', realpath(__DIR__.'/../modules/backend'));
 
 $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
@@ -58,13 +58,16 @@ $config = [
 				'pathMap' => [
 					'@app/views' => '@webroot/themes/blog/views',
 					'@app/widgets/views' => '@webroot/themes/blog/views/widgets',
+					'@app/modules/backend/views' => '@webroot/themes/adminlte/views'
 				],
 			],
 		]
 	],
-//	'modules' => [
-//		'diary' => ['class' => 'diary\Module'],
-//    ],
+	'modules' => [
+		'backend' => [
+			'class' => 'backend\Module',
+		],
+    ],
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015
 		'pageSize' => 20,

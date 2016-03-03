@@ -7,6 +7,8 @@
  */
 
 namespace app\components;
+use yii\helpers\Html;
+use Yii;
 
 /**
  * Helper functions for image
@@ -167,4 +169,31 @@ class ImageHelper {
 		return true;
 	}
 	
+	/*
+	 * Return img html tag with the specified size. Display holder image if url is empty
+	 * 
+	 * @author Lam Huynh
+	 */
+	static public function holderImage($url, $width, $height, $options=array()) {
+		$options = array_merge(array('class'=>'img-responsive'), $options);
+		return Html::img(self::holderUrl($url, $width, $height), 
+			'', $options);
+	}
+	/*
+	 * Return no image url for specific size if url is empty
+	 * 
+	 * @author Lam Huynh
+	 */
+	static public function holderUrl($url, $width, $height) {
+		if ($url) return $url;
+		
+		$noImgSrc = Yii::getAlias('webroot').'/media/placeholder/noimage.jpg';
+		$noImg = Yii::getAlias('webroot')."/media/placeholder/{$width}x{$height}.jpg";
+		$noImageUrl = Yii::getAlias('web')."/media/placeholder/{$width}x{$height}.jpg";
+		// resize the placeholder image file
+		if (!is_file($noImg)) {
+			self::resize($noImgSrc, $noImg, $width, $height);
+		}
+		return $noImageUrl;
+	}
 }

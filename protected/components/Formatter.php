@@ -12,4 +12,12 @@ class Formatter extends \yii\i18n\Formatter {
 		return number_format($val);
 	}
 	
+	public function formatEnum($value, $type=null) {
+		if (!$value) return '';
+		return \app\models\Lookup::item($type, $value);
+	}
+	
+	public function formatYesNo($value) {
+		return $value ? 'Yes' : 'No';
+	}
 }
