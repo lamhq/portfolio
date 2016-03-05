@@ -7,12 +7,10 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Post */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Post Management', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -28,19 +26,29 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            [
+				'attribute'=>'url',
+				'format'=>'raw',
+				'value'=> Html::a($model->url, $model->url),
+			],
             'title',
-            'short_content:ntext',
-            'content:ntext',
-            'featured_image',
-            'type',
+            'short_content:html',
+            'content:html',
+            [
+				'attribute'=>'image',
+				'format'=>'raw',
+				'value'=>  app\components\Helper::holderImage($model->getImageUrl(400, 150), 400, 150),
+			],
             'status',
-            'slug',
-            'view_count',
-            'create_time',
-            'update_time',
-            'author_id',
-            'category_id',
+            'created_at:date',
+            [
+				'attribute'=>'author_id',
+				'value'=> $model->author ? $model->author->username : '',
+			],
+            [
+				'attribute'=>'category_id',
+				'value'=> $model->category ? $model->category->name : '',
+			],
         ],
     ]) ?>
 

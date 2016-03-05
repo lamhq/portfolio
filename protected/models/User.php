@@ -205,7 +205,7 @@ class User extends ActiveRecord implements IdentityInterface
         if (!is_file($imgFile)) {
 			// resize image
 			$srcImg = $this->generateImagePath();
-			ImageHelper::resize($srcImg, $imgFile, $width, $height, array('fit'=>false));
+			Helper::resize($srcImg, $imgFile, $width, $height, array('fit'=>false));
 		}
 		
         $imgUrl = $this->generateImageUrl($width, $height, $watermark);

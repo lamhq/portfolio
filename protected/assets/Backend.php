@@ -3,10 +3,10 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class BackendAsset extends AssetBundle
+class Backend extends AssetBundle
 {
     public function init(){
-        $this->sourcePath = __DIR__ . '/backend-asset';
+        $this->sourcePath = __DIR__ . '/backend';
         parent::init();
     }
     

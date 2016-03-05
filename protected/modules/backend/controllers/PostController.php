@@ -60,9 +60,15 @@ class PostController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Post();
+        $model = new Post([
+			'scenario' => 'create',
+			'author_id' => Yii::$app->user->id,
+			'type' => Post::TYPE_POST
+		]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			$model->saveFeaturedImage();
+			$model->saveUploadImages();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -80,9 +86,12 @@ class PostController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+		$model->scenario = 'update';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+			$model->saveFeaturedImage();
+			$model->saveUploadImages();
+             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

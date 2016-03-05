@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-use app\components\ImageHelper;
+use app\components\Helper;
 
 /**
  * This is the model class for table "{{%banner}}".
@@ -18,6 +18,7 @@ class Banner extends \yii\db\ActiveRecord
 {
     const TYPE_RIGHT = 1;
     const TYPE_BOTTOM = 2;
+    const TYPE_POST = 3;
 	const UPLOAD_DIR = 'media/banner';
 	
 	/**
@@ -63,7 +64,7 @@ class Banner extends \yii\db\ActiveRecord
         if (!is_file($imgFile)) {
 			// resize image
 			$srcImg = $this->generateImagePath();
-			ImageHelper::resize($srcImg, $imgFile, $width, $height, array('fit'=>false));
+			Helper::resize($srcImg, $imgFile, $width, $height, array('fit'=>false));
 		}
 		
         $imgUrl = $this->generateImageUrl($width, $height, $watermark);
@@ -76,7 +77,7 @@ class Banner extends \yii\db\ActiveRecord
 	 * 
 	 * @author Lam Huynh
 	 */
-    protected function generateImagePath($width=null, $height=null, $watermark=false) {
+    public function generateImagePath($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@webroot'),
             1 => self::UPLOAD_DIR,
@@ -88,7 +89,7 @@ class Banner extends \yii\db\ActiveRecord
 			$paths[4] = 'w'.$paths[4];
         if (!$width && !$height)
             unset ($paths[3]);
-        return implode('/', $paths);
+        return implode(DIRECTORY_SEPARATOR, $paths);
     }
     
 	/*
@@ -97,7 +98,7 @@ class Banner extends \yii\db\ActiveRecord
 	 * 
 	 * @author Lam Huynh
 	 */
-    protected function generateImageUrl($width=null, $height=null, $watermark=false) {
+    public function generateImageUrl($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@web'),
             1 => self::UPLOAD_DIR,
@@ -110,6 +111,23 @@ class Banner extends \yii\db\ActiveRecord
         if (!$width && !$height)
             unset ($paths[2]);
         return implode('/', $paths);
+    }
+	
+	public function saveImage() {
+		Helper::moveUploadedAjaxFile($this->image, self::UPLOAD_DIR.'/'.$this->id);
+	}
+	
+	static public function getListData() {
+		$result = Lookup::items('banner_type');
+		unset($result[self::TYPE_POST]);
+		return $result;
+	}
+	
+    public function beforeDelete()
+    {
+        $rm = implode(DIRECTORY_SEPARATOR, [Yii::getAlias('@webroot'), self::UPLOAD_DIR, $this->id]);
+		\yii\helpers\FileHelper::removeDirectory($rm);
+		return parent::beforeDelete();
     }
 	
 }

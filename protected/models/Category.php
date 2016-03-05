@@ -49,7 +49,7 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getPosts()
     {
-        return $this->hasMany(Post::className(), ['category_id' => 'id'])->orderBy('update_time DESC');
+        return $this->hasMany(Post::className(), ['category_id' => 'id'])->orderBy('updated_at DESC');
     }
 	
 	public function getUrl() {
@@ -59,5 +59,9 @@ class Category extends \yii\db\ActiveRecord
 	static public function getUrlBySlug($slug) {
 		$model = self::find()->where(['slug' => $slug])->one();
 		return $model ? $model->url : '';
+	}
+	
+	static public function getListData() {
+		return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'name');
 	}
 }

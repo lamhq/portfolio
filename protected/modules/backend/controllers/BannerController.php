@@ -33,7 +33,7 @@ class BannerController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Banner::find(),
+            'query' => Banner::find()->where(['not in', 'type', [Banner::TYPE_POST]]),
         ]);
 
         return $this->render('index', [
@@ -63,6 +63,7 @@ class BannerController extends Controller
         $model = new Banner();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			$model->saveImage();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

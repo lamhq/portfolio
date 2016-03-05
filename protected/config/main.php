@@ -67,10 +67,40 @@ $config = [
 		'backend' => [
 			'class' => 'backend\Module',
 		],
+		'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@webroot/media/wyswyg',
+            'uploadUrl' => '@web/media/wyswyg',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
+    ],
+    'as globalAccess'=>[
+        'class'=>'\app\components\GlobalAccessBehavior',
+        'rules'=>[
+			[
+				'allow' => true,
+				'roles' => ['?'],
+			],
+			[
+                'controllers'=>['/backend/site'],
+				'actions' => ['login', 'error'],
+				'roles' => ['?'],
+				'allow' => true,
+			],
+			[
+				'allow' => true,
+				'roles' => ['@'],
+			],
+			[
+				'allow' => false,
+				'roles' => ['?'],
+			],
+        ]
     ],
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015
 		'pageSize' => 20,
+		'ajaxUploadDir' => 'assets/upload'
 	],
 ];
 

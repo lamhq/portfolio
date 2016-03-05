@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use app\components\ImageHelper;
+use app\components\Helper;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'attribute'=>'image',
 				'format'=>'raw',
 				'value'=>function ($model, $key, $index, $column) {
-					return ImageHelper::holderImage($model->getImageUrl(400, 150), 400, 150);
+					return Helper::holderImage($model->getImageUrl(400, 150), 400, 150);
 				},
 			],
             [

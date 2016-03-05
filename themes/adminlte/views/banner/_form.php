@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\widgets\AjaxUpload;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Banner */
@@ -14,9 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image')->widget(AjaxUpload::className(), [
+		'uploadUrl' => Url::to(['/site/ajaxUpload']),
+		'extensions' => ['jpg', 'jpeg', 'gif', 'png'],
+		'maxSize' => 4000,
+	]) ?>
 
-    <?= $form->field($model, 'type')->textInput() ?>
+    <?= $form->field($model, 'type')->dropDownList(app\models\Banner::getListData()) ?>
 
     <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
 

@@ -20,7 +20,20 @@ class SiteController extends Controller {
 				'class' => 'yii\captcha\CaptchaAction',
 				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
 			],
+			'ajaxUpload' => 'app\components\AjaxUploadAction',
 		];
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function beforeAction($action)
+	{            
+		if ($action->id == 'ajaxUpload') {
+			$this->enableCsrfValidation = false;
+		}
+
+		return parent::beforeAction($action);
 	}
 
 	public function actionIndex() {

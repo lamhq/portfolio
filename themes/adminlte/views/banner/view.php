@@ -27,11 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'title',
-            'image',
             [
-				'name'=>'type',
-				'type'=>'enum',
-				'value'=>'[$data->type, \app\models\Lookup::items("banner_type")]'
+				'attribute'=>'image',
+				'format'=>'raw',
+				'value'=>  app\components\Helper::holderImage($model->getImageUrl(400, 150), 400, 150),
+			],
+            [
+				'attribute'=>'type',
+				'value'=> Yii::$app->formatter->formatEnum($model->type, 'banner_type'),
 			],
         ],
     ]) ?>

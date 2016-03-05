@@ -10,7 +10,7 @@ use Yii;
  * @property string $id
  * @property string $content
  * @property integer $status
- * @property string $create_time
+ * @property string $created_at
  * @property string $author_id
  * @property string $post_id
  *
@@ -34,7 +34,7 @@ class Comment extends \yii\db\ActiveRecord
         return [
             [['content'], 'string'],
             [['status', 'post_id', 'author_id'], 'integer'],
-            [['create_time'], 'safe'],
+            [['created_at'], 'safe'],
         ];
     }
 
@@ -47,7 +47,7 @@ class Comment extends \yii\db\ActiveRecord
             'id' => 'ID',
             'content' => 'Content',
             'status' => 'Status',
-            'create_time' => 'Create Time',
+            'created_at' => 'Create Time',
             'author_id' => 'Author',
             'post_id' => 'Post ID',
         ];

@@ -4,9 +4,11 @@
 		"yiisoft/yii2": ">=2.0.5",
 		"yiisoft/yii2-bootstrap": "*",
 		"yiisoft/yii2-swiftmailer": "*",
-		"almasaeed2010/adminlte": "~2.0",
-		"components/font-awesome": "~4.4.0",
-		"kartik-v/yii2-widget-datetimepicker": "~1.4.0"
+		"bower-asset/admin-lte": "~2.3.0",
+		"bower-asset/font-awesome": "~4.4.0",
+		"kartik-v/yii2-widget-datetimepicker": "~1.4.0",
+		"kartik-v/yii2-widget-fileinput": "@dev",
+		"yiidoc/yii2-redactor": "*"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",
