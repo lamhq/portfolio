@@ -34,14 +34,11 @@ class PostController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Post::find(),
+			'sort'=>['defaultOrder' => ['updated_at'=>SORT_DESC]]
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-			'sort'=>[
-				'attributes' => ['updated_at'],
-				'defaultOrder' => ['updated_at'=>SORT_DESC]
-			]
         ]);
     }
 
