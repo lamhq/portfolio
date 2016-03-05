@@ -38,6 +38,10 @@ class PostController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+			'sort'=>[
+				'attributes' => ['updated_at'],
+				'defaultOrder' => ['updated_at'=>SORT_DESC]
+			]
         ]);
     }
 

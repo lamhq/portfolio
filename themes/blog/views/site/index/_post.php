@@ -2,9 +2,15 @@
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
 /* @var $mode string */
-$imgUrl = $mode=='big' ? $model->getImageUrl(553, 302) : $model->getImageUrl(261, 142);
+use app\components\Helper;
 ?>
-<a href="<?= $model->url ?>" class="imgeffect"><img src="<?= $imgUrl ?>" alt="" /></a>
+<a href="<?= $model->url ?>" class="imgeffect">
+	<?php if ($mode=='big'): ?>
+		<?= Helper::holderImage($model->getImageUrl(553, 302), 553, 302) ?>
+	<?php else: ?>
+		<?= Helper::holderImage($model->getImageUrl(261, 142), 261, 142) ?>
+	<?php endif ?>
+</a>
 <?php if ($model->category): ?>
 <p class="ico-trend"><?= $model->category->name ?></p>
 <?php endif ?>

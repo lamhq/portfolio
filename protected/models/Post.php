@@ -7,6 +7,7 @@ use app\components\Helper;
 use yii\helpers\Url;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\SluggableBehavior;
+use yii\db\Expression;
 
 
 /**
@@ -109,7 +110,7 @@ class Post extends \yii\db\ActiveRecord {
 
 	public function getUrl() {
 		$route = $this->type == self::TYPE_PAGE ? '/page/view' : '/post/view';
-		return Url::to([$route, 'slug' => $this->slug], true);
+		return Url::to([$route, 'id'=>$this->id, 'slug' => $this->slug], true);
 	}
 
 	static public function getUrlBySlug($slug) {
@@ -143,15 +144,18 @@ class Post extends \yii\db\ActiveRecord {
     protected function generateImagePath($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@webroot'),
-            1 => self::UPLOAD_DIR,
-            2 => $this->id,
-            3 => "{$width}x{$height}",
-            4 => $this->featured_image
+            1 => 'assets/cache',
+            2 => self::UPLOAD_DIR,
+            3 => $this->id,
+            4 => "{$width}x{$height}",
+            5 => $this->featured_image
         );
 		if ($watermark)
-			$paths[4] = 'w'.$paths[4];
-        if (!$width && !$height)
-            unset ($paths[3]);
+			$paths[5] = 'w'.$paths[5];
+        if (!$width && !$height) {
+            unset ($paths[1]);
+            unset ($paths[4]);
+		}
         return implode('/', $paths);
     }
     
@@ -164,15 +168,18 @@ class Post extends \yii\db\ActiveRecord {
     protected function generateImageUrl($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@web'),
-            1 => self::UPLOAD_DIR,
-            2 => $this->id,
-            3 => "{$width}x{$height}",
-            4 => $this->featured_image
+            1 => 'assets/cache',
+            2 => self::UPLOAD_DIR,
+            3 => $this->id,
+            4 => "{$width}x{$height}",
+            5 => $this->featured_image
         );
 		if ($watermark)
-			$paths[4] = 'w'.$paths[4];
-        if (!$width && !$height)
-            unset ($paths[2]);
+			$paths[5] = 'w'.$paths[5];
+        if (!$width && !$height) {
+            unset ($paths[1]);
+            unset ($paths[4]);
+		}
         return implode('/', $paths);
     }
 	
@@ -219,12 +226,14 @@ class Post extends \yii\db\ActiveRecord {
 	
     public function beforeDelete()
     {
-        $rm = implode(DIRECTORY_SEPARATOR, [Yii::getAlias('@webroot'), self::UPLOAD_DIR, $this->id]);
+        // remove uploaded files
+		$rm = implode(DIRECTORY_SEPARATOR, [Yii::getAlias('@webroot'), self::UPLOAD_DIR, $this->id]);
 		\yii\helpers\FileHelper::removeDirectory($rm);
-		
+		// remove banner
 		foreach($this->images as $image) {
 			$image->delete();
 		}
+		PostBanner::deleteAll(['post_id'=>$this->id]);
 		return parent::beforeDelete();
     }
 	
@@ -274,7 +283,10 @@ class Post extends \yii\db\ActiveRecord {
 	
 	public function behaviors() {
 		return [
-			TimestampBehavior::className(),
+			[
+				'class' => TimestampBehavior::className(),
+				'value' => new Expression('NOW()'),
+			],
 			[
 				'class' => SluggableBehavior::className(),
 				'attribute' => 'title',

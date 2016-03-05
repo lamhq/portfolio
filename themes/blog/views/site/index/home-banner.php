@@ -1,13 +1,18 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $posts app\models\Post[] */
+use app\components\Helper;
 app\assets\HomeBannerAsset::register($this);
 ?>
 <!-- home banner -->
 <ul class="slider slider id-slider autoplay-0 interval-5000 pause_on_hover-1">
 	<?php foreach($posts as $post): ?>
 	<li class="slide bg">
-		<img src="<?= $post->getImageUrl(1148,373) ?>" class="attachment-slider-thumb size-slider-thumb wp-post-image bgimg" alt="<?= $post->title ?>" title="<?= $post->title ?>" />
+		<?= Helper::holderImage($post->getImageUrl(1148,373), 1148,373, [
+			'class'=>'attachment-slider-thumb size-slider-thumb wp-post-image bgimg',
+			'title'=> $post->title,
+			'alt'=> $post->title,
+		]) ?>
 		<div class="slider_content_box">
 			<ul class="post_details">
 				<?php if ($post->category): ?>

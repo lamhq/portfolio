@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
 					return Helper::holderImage($model->getImageUrl(400, 150), 400, 150);
 				},
 			],
-         
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

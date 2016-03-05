@@ -13,6 +13,7 @@ use yii\helpers\ArrayHelper;
 <?= $this->render('_head') ?>
 <body class="<?= ArrayHelper::getValue($this->params, 'body-class') ?>">
 <?php $this->beginBody() ?>
+	<?= ArrayHelper::getValue($this->blocks, 'body_begin') ?>
 	<div class="page">
 		<?= $this->render('_header') ?>
 	

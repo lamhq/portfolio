@@ -57,7 +57,7 @@ class Helper {
 	static public function resize($srcImg, $dstImg, $width, $height, $options=array()) {
 		if (!is_file($srcImg)) return false;
 		if (!file_exists(dirname($dstImg))) 
-			mkdir(dirname($dstImg));
+			mkdir(dirname($dstImg), 0777, true);
 		
 		$setting = array_merge(array(
 			'fit' => true,
@@ -209,13 +209,13 @@ class Helper {
 	static public function holderUrl($url, $width, $height) {
 		if ($url) return $url;
 		
-		$noImgSrc = Yii::getAlias('@webroot').'/media/placeholder/noimage.jpg';
-		$noImg = Yii::getAlias('@webroot')."/media/placeholder/{$width}x{$height}.jpg";
-		$noImageUrl = Yii::getAlias('@web')."/media/placeholder/{$width}x{$height}.jpg";
+		$noImg = Yii::getAlias('@webroot').'/media/placeholder/noimage.jpg';
+		$resizedImg = Yii::getAlias('@webroot')."/assets/cache/placeholder/{$width}x{$height}.jpg";
+		$resizedImageUrl = Yii::getAlias('@web')."/assets/cache/placeholder/{$width}x{$height}.jpg";
 		// resize the placeholder image file
-		if (!is_file($noImg)) {
-			self::resize($noImgSrc, $noImg, $width, $height);
+		if (!is_file($resizedImg)) {
+			self::resize($noImg, $resizedImg, $width, $height);
 		}
-		return $noImageUrl;
+		return $resizedImageUrl;
 	}
 }

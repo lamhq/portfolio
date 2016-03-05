@@ -6,7 +6,6 @@ use Yii;
 use yii\web\Controller;
 use backend\models\LoginForm;
 use backend\models\AccountForm;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
 class SiteController extends Controller {
@@ -56,7 +55,7 @@ class SiteController extends Controller {
 
 	public function actionLogout() {
 		Yii::$app->user->logout();
-		return $this->goHome();
+		return $this->redirect(['/backend']);
 	}
 
 	public function actionAccount() {

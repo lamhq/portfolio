@@ -11,8 +11,8 @@ if (!$posts) return;
 		<?php endforeach; ?>
 	</div>
 	<div class="col-md-3">
-		<div class="text-center"><a href="#" class="btn-facebook">Follow us on facebook</a></div>
-		<div class="facebook-wrap" style="text-align: center;"><img src="<?= $this->theme->baseUrl ?>/img/img-facebook.jpg" alt="" /></div>
+		<div class="text-center"><a href="https://www.facebook.com/sgonehomeproperty" class="btn-facebook">Follow us on facebook</a></div>
+		<?= app\widgets\FacebookPage::widget() ?>
 		<?=	app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_RIGHT]) ?>
 	</div>
 </div>

@@ -9,9 +9,9 @@ use yii\data\ActiveDataProvider;
 
 class CategoryController extends Controller {
 
-	public function actionView($slug) {
+	public function actionView($id) {
 		$model = Category::find()->where([
-			'slug' => $slug,
+			'id' => $id,
 		])->one();
 		if (!$model) {
 			throw new \yii\web\HttpException(404, 'The requested page does not exist');

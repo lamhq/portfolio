@@ -8,9 +8,9 @@ use app\models\Post;
 
 class PostController extends Controller {
 
-	public function actionView($slug) {
+	public function actionView($id) {
 		$model = Post::find()->where([
-			'slug' => $slug,
+			'id' => $id,
 			'status' => Post::STATUS_ACTIVE
 		])->one();
 		if (!$model) {

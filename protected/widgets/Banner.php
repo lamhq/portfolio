@@ -12,7 +12,7 @@ class Banner extends Widget
     public $type;
 	
 	/**
-     * Renders the menu.
+     * Renders
      */
     public function run()
     {

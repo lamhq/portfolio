@@ -77,19 +77,22 @@ class Banner extends \yii\db\ActiveRecord
 	 * 
 	 * @author Lam Huynh
 	 */
-    public function generateImagePath($width=null, $height=null, $watermark=false) {
+    protected function generateImagePath($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@webroot'),
-            1 => self::UPLOAD_DIR,
-            2 => $this->id,
-            3 => "{$width}x{$height}",
-            4 => $this->image
+            1 => 'assets/cache',
+            2 => self::UPLOAD_DIR,
+            3 => $this->id,
+            4 => "{$width}x{$height}",
+            5 => $this->image
         );
 		if ($watermark)
-			$paths[4] = 'w'.$paths[4];
-        if (!$width && !$height)
-            unset ($paths[3]);
-        return implode(DIRECTORY_SEPARATOR, $paths);
+			$paths[5] = 'w'.$paths[5];
+        if (!$width && !$height) {
+            unset ($paths[1]);
+            unset ($paths[4]);
+		}
+        return implode('/', $paths);
     }
     
 	/*
@@ -98,18 +101,21 @@ class Banner extends \yii\db\ActiveRecord
 	 * 
 	 * @author Lam Huynh
 	 */
-    public function generateImageUrl($width=null, $height=null, $watermark=false) {
+    protected function generateImageUrl($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@web'),
-            1 => self::UPLOAD_DIR,
-            2 => $this->id,
-            3 => "{$width}x{$height}",
-            4 => $this->image
+            1 => 'assets/cache',
+            2 => self::UPLOAD_DIR,
+            3 => $this->id,
+            4 => "{$width}x{$height}",
+            5 => $this->image
         );
 		if ($watermark)
-			$paths[4] = 'w'.$paths[4];
-        if (!$width && !$height)
-            unset ($paths[2]);
+			$paths[5] = 'w'.$paths[5];
+        if (!$width && !$height) {
+            unset ($paths[1]);
+            unset ($paths[4]);
+		}
         return implode('/', $paths);
     }
 	

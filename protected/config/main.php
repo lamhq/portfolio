@@ -24,7 +24,11 @@ $config = [
 		'urlManager' => [
 			'class' => 'yii\web\UrlManager',
 			'enablePrettyUrl' => true,
-			'showScriptName' => false
+			'showScriptName' => false,
+			'rules'=>[
+				'post/<id:\d+>/<slug:.*>' => 'post/view',
+				'category/<id:\d+>/<slug:.*>' => 'category/view',
+			]
 		],
 		'user' => [
 			'identityClass' => 'app\models\User',
@@ -66,6 +70,22 @@ $config = [
 	'modules' => [
 		'backend' => [
 			'class' => 'backend\Module',
+			'accessRules'=>[
+				[
+					'allow' => true,
+					'controllers' => ['backend/site'],
+					'actions' => ['login', 'error'],
+					'roles' => ['?'],
+				],
+				[
+					'allow' => true,
+					'roles' => ['@'],
+				],
+				[
+					'allow' => false,
+					'roles' => ['?'],
+				],
+			]
 		],
 		'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
@@ -73,29 +93,6 @@ $config = [
             'uploadUrl' => '@web/media/wyswyg',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
-    ],
-    'as globalAccess'=>[
-        'class'=>'\app\components\GlobalAccessBehavior',
-        'rules'=>[
-			[
-				'allow' => true,
-				'roles' => ['?'],
-			],
-			[
-                'controllers'=>['/backend/site'],
-				'actions' => ['login', 'error'],
-				'roles' => ['?'],
-				'allow' => true,
-			],
-			[
-				'allow' => true,
-				'roles' => ['@'],
-			],
-			[
-				'allow' => false,
-				'roles' => ['?'],
-			],
-        ]
     ],
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015
