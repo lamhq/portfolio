@@ -22,12 +22,13 @@ use yii\db\Expression;
  * @property integer $status
  * @property string $slug
 
- * @property string $category_id
  *
  * @property Comment[] $comments
  * @property FeaturedPost $featuredPost 
  * @property User $author
  * @property Category $category
+ * @property Category[] $categories
+ * @property Banner[] $images
  */
 class Post extends \yii\db\ActiveRecord {
 
@@ -37,7 +38,9 @@ class Post extends \yii\db\ActiveRecord {
 	const STATUS_INACTIVE = 2;
 	const UPLOAD_DIR = 'media/post';
 	
-	private $_uploadImages;	// for create/update in backend
+	/* for create/update in backend */
+	private $_uploadImages;
+	private $_selectedCategories;
 
 	/**
 	 * @inheritdoc
@@ -54,8 +57,8 @@ class Post extends \yii\db\ActiveRecord {
 			[['title', 'status', 'content'], 'required', 'on'=>['create', 'update'] ],
 			[['content'], 'string'],
 			[['short_content', 'content'], 'string'],
-			[['type', 'status', 'author_id', 'category_id'], 'integer'],
-			[['created_at', 'updated_at', 'uploadImages'], 'safe'],
+			[['type', 'status', 'author_id'], 'integer'],
+			[['created_at', 'updated_at', 'uploadImages', 'selectedCategories'], 'safe'],
 			[['title', 'slug'], 'string', 'max' => 255],
 			[['title', 'featured_image', 'slug'], 'string', 'max' => 255]
 		];
@@ -76,7 +79,7 @@ class Post extends \yii\db\ActiveRecord {
 			'created_at' => 'Published Date',
 			'updated_at' => 'Update Time',
 			'author_id' => 'Author',
-			'category_id' => 'Category',
+			'selectedCategories' => 'Categories',
 		];
 	}
 
@@ -98,7 +101,16 @@ class Post extends \yii\db\ActiveRecord {
 	 * @return \yii\db\ActiveQuery
 	 */
 	public function getCategory() {
-		return $this->hasOne(Category::className(), ['id' => 'category_id']);
+		return $this->hasOne(Category::className(), ['id' => 'category_id'])
+			->viaTable('{{%post_category}}', ['post_id' => 'id']);        
+	}
+
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
+	public function getCategories() {
+		return $this->hasMany(Category::className(), ['id' => 'category_id'])
+			->viaTable('{{%post_category}}', ['post_id' => 'id']);        
 	}
 
 	/**
@@ -144,7 +156,7 @@ class Post extends \yii\db\ActiveRecord {
     protected function generateImagePath($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@webroot'),
-            1 => 'assets/cache',
+            1 => 'assets',
             2 => self::UPLOAD_DIR,
             3 => $this->id,
             4 => "{$width}x{$height}",
@@ -168,7 +180,7 @@ class Post extends \yii\db\ActiveRecord {
     protected function generateImageUrl($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@web'),
-            1 => 'assets/cache',
+            1 => 'assets',
             2 => self::UPLOAD_DIR,
             3 => $this->id,
             4 => "{$width}x{$height}",
@@ -297,4 +309,31 @@ class Post extends \yii\db\ActiveRecord {
 		];
 	}
 
+	public function getSelectedCategories() {
+		if ($this->_selectedCategories===null) {
+			$cats = $this->getCategories()->all();
+			$this->_selectedCategories = \yii\helpers\ArrayHelper::map($cats, 'id', 'id');
+		}
+		return $this->_selectedCategories;
+	}
+	
+	public function setSelectedCategories($value) {
+		$this->_selectedCategories = $value;
+	}
+	
+	public function saveSelectedCategories() {
+		if (!$this->isNewRecord) {
+			// remove all relationship records
+			PostCategory::deleteAll(['post_id'=>$this->id]);
+		}
+		// selected categories
+		foreach($this->_selectedCategories as $catId) {
+			$rel = new PostCategory([
+				'post_id' => $this->id,
+				'category_id'=> $catId,
+			]);
+			$rel->save();
+		}
+	}
+	
 }

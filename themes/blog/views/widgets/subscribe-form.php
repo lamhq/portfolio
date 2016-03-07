@@ -23,6 +23,5 @@ use yii\widgets\ActiveForm;
 	<p>You can also stay updated by following us below</p>
 	<ul class="socials">
 		<li><a href="https://www.facebook.com/sgonehomeproperty" class="icon-facebook">facebook</a></li>
-		<li><a href="#" class="icon-twitter">twitter</a></li>
 	</ul>
 </section>

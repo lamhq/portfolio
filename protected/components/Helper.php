@@ -210,8 +210,8 @@ class Helper {
 		if ($url) return $url;
 		
 		$noImg = Yii::getAlias('@webroot').'/media/placeholder/noimage.jpg';
-		$resizedImg = Yii::getAlias('@webroot')."/assets/cache/placeholder/{$width}x{$height}.jpg";
-		$resizedImageUrl = Yii::getAlias('@web')."/assets/cache/placeholder/{$width}x{$height}.jpg";
+		$resizedImg = Yii::getAlias('@webroot')."/assets/placeholder/{$width}x{$height}.jpg";
+		$resizedImageUrl = Yii::getAlias('@web')."/assets/placeholder/{$width}x{$height}.jpg";
 		// resize the placeholder image file
 		if (!is_file($resizedImg)) {
 			self::resize($noImg, $resizedImg, $width, $height);

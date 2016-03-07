@@ -28,7 +28,7 @@ use yii\helpers\ArrayHelper;
 			<?= $content ?>
 			
 			<?= app\widgets\SubscribeForm::widget() ?>
-			<?=	app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_BOTTOM]) ?>
+			<?=	'';//app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_BOTTOM]) ?>
 		</div><!-- // main -->
 		<?= $this->render('_footer') ?>
 	</div>

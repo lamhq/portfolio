@@ -49,7 +49,8 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getPosts()
     {
-        return $this->hasMany(Post::className(), ['category_id' => 'id'])->orderBy('updated_at DESC');
+		return $this->hasMany(Post::className(), ['id' => 'post_id'])
+			->viaTable('{{%post_category}}', ['category_id' => 'id']);        
     }
 	
 	public function getUrl() {

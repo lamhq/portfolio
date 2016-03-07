@@ -77,10 +77,10 @@ class Banner extends \yii\db\ActiveRecord
 	 * 
 	 * @author Lam Huynh
 	 */
-    protected function generateImagePath($width=null, $height=null, $watermark=false) {
+    public function generateImagePath($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@webroot'),
-            1 => 'assets/cache',
+            1 => 'assets',
             2 => self::UPLOAD_DIR,
             3 => $this->id,
             4 => "{$width}x{$height}",
@@ -104,7 +104,7 @@ class Banner extends \yii\db\ActiveRecord
     protected function generateImageUrl($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@web'),
-            1 => 'assets/cache',
+            1 => 'assets',
             2 => self::UPLOAD_DIR,
             3 => $this->id,
             4 => "{$width}x{$height}",

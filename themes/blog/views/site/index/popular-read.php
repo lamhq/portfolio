@@ -13,6 +13,6 @@ if (!$posts) return;
 	<div class="col-md-3">
 		<div class="text-center"><a href="https://www.facebook.com/sgonehomeproperty" class="btn-facebook">Follow us on facebook</a></div>
 		<?= app\widgets\FacebookPage::widget() ?>
-		<?=	app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_RIGHT]) ?>
+		<?=	'';//app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_RIGHT]) ?>
 	</div>
 </div>

@@ -17,7 +17,7 @@ use yii\widgets\Breadcrumbs;
 		<?php if (isset($this->blocks['sidebar'])): ?>
 			<?= $this->blocks['sidebar'] ?>
 		<?php endif; ?>
-		<?=	app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_RIGHT]) ?>
+		<?=	'';//app\widgets\Banner::widget(['type'=>  app\models\Banner::TYPE_RIGHT]) ?>
 	</div>
 </div>
 

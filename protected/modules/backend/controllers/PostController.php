@@ -70,6 +70,7 @@ class PostController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			$model->saveFeaturedImage();
 			$model->saveUploadImages();
+			$model->saveSelectedCategories();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -92,6 +93,7 @@ class PostController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			$model->saveFeaturedImage();
 			$model->saveUploadImages();
+			$model->saveSelectedCategories();
              return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

@@ -35,7 +35,14 @@ use yii\helpers\Url;
 	
     <?= $form->field($model, 'status')->dropDownList(app\models\Lookup::items('status'), ['prompt'=>'-- Select --']) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(app\models\Category::getListData(), ['prompt'=>'-- Select --']) ?>
+    <?= $form->field($model, 'selectedCategories')->checkboxList(app\models\Category::getListData(), [
+		'item' => function ($index, $label, $name, $checked, $value){
+			return sprintf('<div class="checkbox">%s</div>',Html::checkbox($name, $checked, [
+			   'value' => $value,
+			   'label' => $label,
+			   'class' => '',
+			]));		
+		}]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

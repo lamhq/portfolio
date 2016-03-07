@@ -49,7 +49,7 @@ use \app\models\Post;
 					</a>
 				</li>
 				<li>
-					<a href="http://onehome.sg/our-services">
+					<a href="<?= Category::getUrlBySlug('onehome-service') ?>">
 						<span class="ico"><img src="<?= $this->theme->baseUrl ?>/img/ico-2.png" alt="" /></span>
 						OneHome Services 
 					</a>
