@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\Url;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "{{%category}}".
@@ -65,4 +66,17 @@ class Category extends \yii\db\ActiveRecord
 	static public function getListData() {
 		return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'name');
 	}
+	
+	public function behaviors() {
+		return [
+			[
+				'class' => SluggableBehavior::className(),
+				'attribute' => 'name',
+				'ensureUnique' => true,
+				'immutable'=>true,
+				// 'slugAttribute' => 'slug',
+			],
+		];
+	}
+
 }
