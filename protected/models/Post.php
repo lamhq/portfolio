@@ -254,6 +254,7 @@ class Post extends \yii\db\ActiveRecord {
 			$banners = $this->getImages()->all();
 			$this->_uploadImages = \yii\helpers\ArrayHelper::map($banners, 'id', 'image');
 		}
+		$this->_uploadImages = is_array($this->_uploadImages) ? $this->_uploadImages : [];
 		return $this->_uploadImages;
 	}
 	
@@ -274,7 +275,7 @@ class Post extends \yii\db\ActiveRecord {
 			PostBanner::deleteAll(['post_id'=>$this->id]);
 		}
 		// save data and move images from upload folder
-		foreach($this->_uploadImages as $image) {
+		foreach($this->getUploadImages() as $image) {
 			$banner = new Banner([
 				'image'=> $image,
 				'type' => Banner::TYPE_POST
@@ -327,7 +328,7 @@ class Post extends \yii\db\ActiveRecord {
 			PostCategory::deleteAll(['post_id'=>$this->id]);
 		}
 		// selected categories
-		foreach($this->_selectedCategories as $catId) {
+		foreach($this->getSelectedCategories() as $catId) {
 			$rel = new PostCategory([
 				'post_id' => $this->id,
 				'category_id'=> $catId,
@@ -335,5 +336,4 @@ class Post extends \yii\db\ActiveRecord {
 			$rel->save();
 		}
 	}
-	
 }

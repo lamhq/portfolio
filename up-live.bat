@@ -1,1 +1,1 @@
-php ..\gu\export.php http://lamhq.com/ma/import.php
+php ..\git-upload\export.php http://onehome.sg/blog2/import.php

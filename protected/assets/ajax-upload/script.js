@@ -34,6 +34,7 @@ function setupAjaxUploadWidget (options) {
 				try {
 					var resp = JSON.parse(request.response);
 					widget.find('.files').append(createPreviewItem(resp));
+					widget.find('.holder').remove();
 					widget.find('.loader').addClass('hide');
 				} catch (e){ }
 			}
@@ -68,6 +69,10 @@ function setupAjaxUploadWidget (options) {
 
 	widget.on('click', '.remove', function() {
 		$(this).parent().remove();
+		if (widget.find('.files li').size()<1) {
+			var hidden = '<input type="hidden" name="' +options.name+ '" value="" class="holder" />';
+			widget.append(hidden);
+		}
 	});
 }
 

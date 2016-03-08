@@ -39,15 +39,18 @@ $this->params['breadcrumbs'][] = $this->title;
 				'format'=>'raw',
 				'value'=>  app\components\Helper::holderImage($model->getImageUrl(400, 150), 400, 150),
 			],
-            'status',
+            [
+				'attribute'=>'status',
+				'value'=> Yii::$app->formatter->formatEnum($model->status, 'status'),
+			],
             'created_at:date',
             [
 				'attribute'=>'author_id',
 				'value'=> $model->author ? $model->author->username : '',
 			],
             [
-				'attribute'=>'category_id',
-				'value'=> $model->category ? $model->category->name : '',
+				'attribute'=>'category',
+				'value'=> implode(', ', \yii\helpers\ArrayHelper::map($model->categories, 'id', 'name')),
 			],
         ],
     ]) ?>
