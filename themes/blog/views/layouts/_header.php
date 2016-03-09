@@ -8,7 +8,7 @@ use \app\models\Post;
 ?>
 <div class="top-link">
 	<div class="container clearfix">
-		<div class="logo"><a href="<?= Yii::$app->homeUrl ?>"><img src="<?= $this->theme->baseUrl ?>/img/onehome-logo.png" alt="Onehome" /></a></div>
+		<div class="logo"><a href="http://onehome.sg"><img src="<?= $this->theme->baseUrl ?>/img/onehome-logo.png" alt="Onehome" /></a></div>
 		<ul>
 			<li><a href="http://onehome.sg/page/about-us">about us</a></li>
 			<li><a href="http://onehome.sg/contact">contact us</a></li>
@@ -49,7 +49,7 @@ use \app\models\Post;
 					</a>
 				</li>
 				<li>
-					<a href="<?= Category::getUrlBySlug('onehome-service') ?>">
+					<a href="<?= Category::getUrlBySlug('onehome-services') ?>">
 						<span class="ico"><img src="<?= $this->theme->baseUrl ?>/img/ico-2.png" alt="" /></span>
 						OneHome Services 
 					</a>
@@ -73,7 +73,7 @@ use \app\models\Post;
 					</a>
 				</li>
 				<li>
-					<a href="http://onehome.sg/our-forum">
+					<a href="http://onehome.sg/forum">
 						<span class="ico"><img src="<?= $this->theme->baseUrl ?>/img/ico-6.png" alt="" /></span>
 						Discussion Forum
 					</a>

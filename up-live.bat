@@ -1,1 +1,1 @@
-php ..\git-upload\export.php http://onehome.sg/blog2/import.php
+php ..\git-upload\export.php http://onehome.sg/blog/import.php
