@@ -11,7 +11,12 @@ use yii\helpers\Html;
 	<meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+	
+	<meta property="og:image" path="/blog/media/post/8/1457511385-business-money-pink-coins-large.jpg" />
+	<meta property="og:title" path="Buying a resale flat in Singapore " />
+	<meta property="og:url" path="http://onehome.sg/blog/post/8/buying-a-resale-flat-in-singapore" />
+
+<link rel="icon" href="favicon.ico">
     
 	<?= Html::csrfMetaTags() ?>
 	<title><?= Html::encode($this->title) ?> - <?= Html::encode(Yii::$app->name) ?></title>
