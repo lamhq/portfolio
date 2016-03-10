@@ -2,16 +2,11 @@
 
 /**
  * @var $this yii\web\View
- * @var $text string
+ * @var $url string
  */
+use yii\helpers\Html;
 ?>
-<div class="fb-page" data-href="https://www.facebook.com/sgonehomeproperty" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-	<div class="fb-xfbml-parse-ignore">
-		<blockquote cite="https://www.facebook.com/sgonehomeproperty">
-			<a href="https://www.facebook.com/sgonehomeproperty">OneHome Property Pte Ltd</a>
-		</blockquote>
-	</div>
-</div>
+<div class="fb-share-button" data-href="<?= Html::encode($url) ?>" data-layout="button_count"></div>
 	
 <?php $this->beginBlock('body_begin') ?>
 <div id="fb-root"></div>

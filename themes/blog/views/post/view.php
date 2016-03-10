@@ -2,6 +2,10 @@
 /* @var $this yii\web\View */
 /* @var $post app\models\Post */
 use \app\widgets\PostList;
+if ($post->category) {
+	$c = $post->category;
+	$this->params['breadcrumbs'][] = ['label' => $c->name, 'url' => $c->url];
+}
 $this->params['breadcrumbs'][] = $post->title;
 $this->title = $post->title;
 ?>
@@ -19,7 +23,7 @@ $this->title = $post->title;
 		<li class="glyphicon glyphicon-user">By <a href="#"><?= $post->author->username ?></a> on <?= $post->publishedDate ?></li>
 	</ul>
 	<div style="margin: 10px 0;">
-		<?=	\app\widgets\AddThis::widget(['url'=>$post->url,'title'=>$post->title]) ?>
+		<?=	\app\widgets\FacebookShareButton::widget(['url'=>$post->url]) ?>
 	</div>
 	<?= $post->content ?>
 </div>
