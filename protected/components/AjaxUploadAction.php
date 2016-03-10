@@ -4,6 +4,7 @@ namespace app\components;
 
 use yii\base\Action;
 use Yii;
+use app\components\Helper;
 
 class AjaxUploadAction extends Action {
 
@@ -15,7 +16,7 @@ class AjaxUploadAction extends Action {
 			if ($_FILES['ajax-file']['error'] > 0) {
 				throw new Exception('An error ocurred when uploading.');
 			}
-			$filename = time() . '-' . $_FILES['ajax-file']['name'];
+			$filename = Helper::sanitize(time() . '-' . $_FILES['ajax-file']['name']);
 			$dir = Yii::getAlias('@webroot') .'/'. Yii::$app->params['ajaxUploadDir'];
 			if (!file_exists($dir)) {
 				mkdir($dir, 0777, true);

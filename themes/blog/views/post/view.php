@@ -6,6 +6,9 @@ if ($post->category) {
 	$c = $post->category;
 	$this->params['breadcrumbs'][] = ['label' => $c->name, 'url' => $c->url];
 }
+$this->registerMetaTag(['property'=>'og:image', 'path'=>$post->getImageUrl() ]);
+$this->registerMetaTag(['property'=>'og:title', 'path'=>$post->title ]);
+$this->registerMetaTag(['property'=>'og:url', 'path'=>$post->url ]);
 $this->params['breadcrumbs'][] = $post->title;
 $this->title = $post->title;
 ?>
