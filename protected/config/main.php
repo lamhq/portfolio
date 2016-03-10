@@ -1,5 +1,6 @@
 <?php
 Yii::setAlias('@backend', realpath(__DIR__.'/../modules/backend'));
+Yii::setAlias('@api', realpath(__DIR__.'/../modules/api'));
 
 $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
@@ -87,6 +88,9 @@ $config = [
 				],
 			]
 		],
+		'api' => [
+            'class' => 'api\Module',
+        ],
 		'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
             'uploadDir' => '@webroot/media/wyswyg',

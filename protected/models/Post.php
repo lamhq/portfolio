@@ -179,7 +179,7 @@ class Post extends \yii\db\ActiveRecord {
 	 */
     protected function generateImageUrl($width=null, $height=null, $watermark=false) {
         $paths = array(
-            0 => Yii::getAlias('@web'),
+            0 => Url::base(true),
             1 => 'assets',
             2 => self::UPLOAD_DIR,
             3 => $this->id,
@@ -199,6 +199,9 @@ class Post extends \yii\db\ActiveRecord {
 		return \app\components\Helper::toAppDate($this->created_at);
 	}
 	
+	/**
+	 * @return Post[]
+	 */
 	static public function getLatestPosts() {
 		return Post::find()
 			->with('category')
@@ -336,4 +339,20 @@ class Post extends \yii\db\ActiveRecord {
 			$rel->save();
 		}
 	}
+	
+	// explicitly list every field, best used when you want to make sure the changes
+	// in your DB table or model attributes do not cause your field changes (to keep API backward compatibility).
+	public function fields()
+	{
+		return [
+			'title','short_content','url','publishedDate','url',
+			'image' => function () {
+				return $this->getImageUrl(261,142);
+			},
+			'author' => function () {
+				return $this->author->username;
+			},
+		];
+	}
+
 }
