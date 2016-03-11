@@ -27,6 +27,7 @@ $config = [
 			'enablePrettyUrl' => true,
 			'showScriptName' => false,
 			'rules'=>[
+				'post/<id:\d+>/<cat:.*>/<slug:.*>' => 'post/view',
 				'post/<id:\d+>/<slug:.*>' => 'post/view',
 				'category/<id:\d+>/<slug:.*>' => 'category/view',
 			]

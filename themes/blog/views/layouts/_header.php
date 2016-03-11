@@ -10,6 +10,7 @@ use \app\models\Post;
 	<div class="container clearfix">
 		<div class="logo"><a href="http://onehome.sg"><img src="<?= $this->theme->baseUrl ?>/img/onehome-logo.png" alt="Onehome" /></a></div>
 		<ul>
+			<li><a href="http://onehome.sg">home</a></li>
 			<li><a href="http://onehome.sg/page/about-us">about us</a></li>
 			<li><a href="http://onehome.sg/contact">contact us</a></li>
 			<li><a href="http://onehome.sg/listing">property search</a></li>

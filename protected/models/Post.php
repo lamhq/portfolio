@@ -122,7 +122,11 @@ class Post extends \yii\db\ActiveRecord {
 
 	public function getUrl() {
 		$route = $this->type == self::TYPE_PAGE ? '/page/view' : '/post/view';
-		return Url::to([$route, 'id'=>$this->id, 'slug' => $this->slug], true);
+		$params = [$route, 'id'=>$this->id];
+		if ($this->category)
+			$params['cat'] = $this->category->slug;
+		$params['slug'] = $this->slug;
+		return Url::to($params, true);
 	}
 
 	static public function getUrlBySlug($slug) {
