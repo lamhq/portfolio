@@ -32,7 +32,6 @@ $this->registerMetaTag(['property'=>'og:description', 'content'=> strip_tags($po
 		<li class="glyphicon glyphicon-star"><a href="#">Celebrity real estate</a></li>
 		<li class="glyphicon glyphicon-picture">Gallery</li>
 		-->
-		<li class="glyphicon glyphicon-user">By <a href="#"><?= $post->author->username ?></a> on <?= $post->publishedDate ?></li>
 	</ul>
 	<div style="margin: 10px 0;">
 		<?=	\app\widgets\FacebookShareButton::widget(['url'=>$post->url]) ?>
