@@ -157,7 +157,7 @@ class Post extends \yii\db\ActiveRecord {
 	 * 
 	 * @author Lam Huynh
 	 */
-    protected function generateImagePath($width=null, $height=null, $watermark=false) {
+    public function generateImagePath($width=null, $height=null, $watermark=false) {
         $paths = array(
             0 => Yii::getAlias('@webroot'),
             1 => 'assets',
