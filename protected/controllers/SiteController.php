@@ -100,4 +100,8 @@ class SiteController extends Controller {
 		]);
 		
 	}
+	
+	public function actionTest() {
+		return $this->renderPartial('test');
+	}
 }
