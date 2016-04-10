@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * PostController implements the CRUD actions for Post model.
  */
-class PostController extends Controller
+class PageController extends Controller
 {
     public function behaviors()
     {
@@ -33,7 +33,7 @@ class PostController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Post::find()->where(['type'=>Post::TYPE_POST]),
+            'query' => Post::find()->where(['type'=>Post::TYPE_PAGE]),
 			'sort'=>['defaultOrder' => ['updated_at'=>SORT_DESC]]
         ]);
 
@@ -88,7 +88,7 @@ class PostController extends Controller
      */
     public function actionUpdate($id)
     {
-		$model = $this->findModel($id);
+        $model = $this->findModel($id);
 		$model->scenario = 'update';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

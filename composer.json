@@ -7,8 +7,8 @@
 		"bower-asset/admin-lte": "~2.3.0",
 		"bower-asset/font-awesome": "~4.4.0",
 		"kartik-v/yii2-widget-datetimepicker": "~1.4.0",
-		"kartik-v/yii2-widget-fileinput": "@dev",
-		"yiidoc/yii2-redactor": "*"
+		"yiidoc/yii2-redactor": "*",
+		"kartik-v/yii2-widget-select2": "^2.0"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",
@@ -39,9 +39,9 @@
 			"bower-asset-library": "vendor/bower"
 		}
 	},
-  	"name": "onehome/blog",
-  	"description": "Onehome Blog System",
-  	"keywords": ["yii2", "blog"],
+  	"name": "lh/portfolio",
+  	"description": "Lam Huynh Portfolio",
+  	"keywords": ["yii2", "portfolio", "lam huynh"],
 	"type": "project",
 	"license": "BSD-3-Clause",
 	"homepage": "http://www.yiiframework.com/",

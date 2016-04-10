@@ -17,17 +17,17 @@ class AjaxUploadAction extends Action {
 				throw new Exception('An error ocurred when uploading.');
 			}
 			$filename = Helper::sanitize(time() . '-' . $_FILES['ajax-file']['name']);
-			$dir = Yii::getAlias('@webroot') .'/'. Yii::$app->params['ajaxUploadDir'];
+			$filePath = Helper::getUploadFilePath($filename);
+			$dir = dirname($filePath);
 			if (!file_exists($dir)) {
 				mkdir($dir, 0777, true);
 			}
-			$filePath = $dir .'/'. $filename;
 			// Upload file
 			if (!move_uploaded_file($_FILES['ajax-file']['tmp_name'], $filePath)) {
 				throw new Exception('Error uploading file - check destination is writeable.');
 			}
 			$response['value'] = $filename;
-			$response['link'] = Yii::getAlias('@web') .'/'. Yii::$app->params['ajaxUploadDir'] .'/'. $filename;
+			$response['link'] = Helper::getUploadFileLink($filename);
 			$response['status'] = 'success';
 		} catch (Exception $ex) {
 			$response['status'] = 'error';

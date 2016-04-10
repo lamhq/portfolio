@@ -41,6 +41,7 @@ class Post extends \yii\db\ActiveRecord {
 	/* for create/update in backend */
 	private $_uploadImages;
 	private $_selectedCategories;
+	private $_tagValues = null;
 
 	/**
 	 * @inheritdoc
@@ -58,7 +59,7 @@ class Post extends \yii\db\ActiveRecord {
 			[['content'], 'string'],
 			[['short_content', 'content'], 'string'],
 			[['type', 'status', 'author_id'], 'integer'],
-			[['created_at', 'updated_at', 'uploadImages', 'selectedCategories'], 'safe'],
+			[['created_at', 'updated_at', 'uploadImages', 'selectedCategories', 'tagValues'], 'safe'],
 			[['title', 'slug'], 'string', 'max' => 255],
 			[['title', 'featured_image', 'slug'], 'string', 'max' => 255]
 		];
@@ -80,6 +81,7 @@ class Post extends \yii\db\ActiveRecord {
 			'updated_at' => 'Update Time',
 			'author_id' => 'Author',
 			'selectedCategories' => 'Categories',
+			'tagValues' => 'Tags',
 		];
 	}
 
@@ -258,35 +260,41 @@ class Post extends \yii\db\ActiveRecord {
 	
 	public function getUploadImages() {
 		if ($this->_uploadImages===null) {
-			$banners = $this->getImages()->all();
-			$this->_uploadImages = \yii\helpers\ArrayHelper::map($banners, 'id', 'image');
+			$this->_uploadImages = $this->getImages()->all();
 		}
-		$this->_uploadImages = is_array($this->_uploadImages) ? $this->_uploadImages : [];
 		return $this->_uploadImages;
 	}
 	
 	public function setUploadImages($value) {
-		$this->_uploadImages = $value;
+		if (!is_array($value)) throw new Exception ('uploaded images must be an array.');
+		$models = [];
+		/* @var $model \app\models\Banner */
+		foreach($value as $data) {
+			// import form data [id?, image]
+			if (is_array($data)) {
+				$model = new Banner([
+					'image' => $data['image'],
+					'type' => Banner::TYPE_POST,
+				]);
+				if (isset($data['id'])) {
+					$model->id = $data['id'];
+					$model->isNewRecord = false;
+				}
+			} else {
+				$model = $data;
+			}
+			$models[] = $model;
+		}
+		$this->_uploadImages = $models;
 	}
 	
 	public function saveUploadImages() {
 		if (!$this->isNewRecord) {
-			// move old images to upload folder
-			// remove old banners
-			foreach($this->images as $banner) {
-				$from = $banner->generateImagePath();
-				$to = implode(DIRECTORY_SEPARATOR, [Yii::getAlias('@webroot'),Yii::$app->params['ajaxUploadDir'],$banner->image]);
-				if (is_file($from)) rename($from, $to);
-				$banner->delete();
-			}
 			PostBanner::deleteAll(['post_id'=>$this->id]);
 		}
 		// save data and move images from upload folder
-		foreach($this->getUploadImages() as $image) {
-			$banner = new Banner([
-				'image'=> $image,
-				'type' => Banner::TYPE_POST
-			]);
+		/* @var $banner \app\models\Banner */
+		foreach($this->getUploadImages() as $banner) {
 			$banner->save();
 			$banner->saveImage();
 			$relation = new PostBanner([
@@ -294,6 +302,18 @@ class Post extends \yii\db\ActiveRecord {
 				'banner_id'=>$banner->id
 			]);
 			$relation->save();
+		}
+		
+		// delete unused banner
+		$pb = PostBanner::tableName();
+		$b = Banner::tableName();
+		$banners = Banner::find()->where("type=:type and not exists (
+			select *
+			from $pb pb
+			where pb.banner_id=$b.id
+		   )", [':type'=>Banner::TYPE_POST])->all();
+		foreach($banners as $banner) {
+			$banner->delete();
 		}
 	}
 	
@@ -359,4 +379,62 @@ class Post extends \yii\db\ActiveRecord {
 		];
 	}
 
+	public function getTagValues() {
+		if ($this->_tagValues===null) {
+			$names = [];
+			foreach ($this->tags as $tag) {
+				$names[] = $tag->name;
+			}
+			$this->_tagValues = $names;
+		}
+		return $this->_tagValues;
+	}
+	
+	public function setTagValues($value) {
+		$this->_tagValues = $value;
+	}
+	
+	public function saveTags() {
+		// delete all tags belong to this activity
+		if (!$this->isNewRecord)
+			PostTag::deleteAll('post_id=:id', [':id'=>$this->id]);
+		// save new tags
+		$names = is_array($this->_tagValues) ? $this->_tagValues : [];
+		foreach ($names as $name) {
+			$name = trim($name);
+			if (!$name) continue;
+			
+			$tag = Tag::find()
+				->where(['name' => $name])
+				->one();
+			
+			if (!$tag) {
+				$tag = new Tag(['name'=>$name]);
+				$tag->save();
+			}
+			
+			$at = new PostTag([
+				'post_id'=>$this->id,
+				'tag_id'=>$tag->id,
+			]);
+			$at->save();
+		}
+		
+		// delete empty tag
+		Tag::deleteAll('id not in (select tag_id from {{%post_tag}})');
+	}
+	
+	public function getTagListData() {
+		return \yii\helpers\ArrayHelper::map(Tag::find()->all(), 'id', 'name');
+	}
+	
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTags()
+    {
+		return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
+            ->viaTable('{{%post_tag}}', ['post_id' => 'id']);
+    }
+	
 }

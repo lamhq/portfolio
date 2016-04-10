@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -26,7 +27,7 @@ use yii\helpers\Url;
 		'maxSize' => 4000,
 	]) ?>
 
-    <?= $form->field($model, 'uploadImages')->widget(app\widgets\AjaxUpload::className(), [
+    <?= $form->field($model, 'uploadImages')->widget(\app\widgets\BannerUpload::className(), [
 		'uploadUrl' => Url::to(['/site/ajaxUpload']),
 		'extensions' => ['jpg', 'jpeg', 'gif', 'png'],
 		'maxSize' => 4000,
@@ -35,6 +36,22 @@ use yii\helpers\Url;
 	
     <?= $form->field($model, 'status')->dropDownList(app\models\Lookup::items('status'), ['prompt'=>'-- Select --']) ?>
 
+	<?php
+	$tagNames = array_values($model->getTagListData());
+	?>
+	<?= $form->field($model, 'tagValues')->widget(
+		Select2::className(), [
+		'data' => array_combine($tagNames, $tagNames),
+		'options' => [
+			'placeholder'=>'Enter tags',
+		],
+		'pluginOptions' => [
+			'multiple' => true,
+			'tags' => true,
+			'tokenSeparators' => [','],
+		],
+	]) ?>
+	
     <?= $form->field($model, 'selectedCategories')->checkboxList(app\models\Category::getListData(), [
 		'item' => function ($index, $label, $name, $checked, $value){
 			return sprintf('<div class="checkbox">%s</div>',Html::checkbox($name, $checked, [

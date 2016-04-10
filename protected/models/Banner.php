@@ -13,6 +13,8 @@ use app\components\Helper;
  * @property string $image
  * @property integer $type
  * @property string $link
+ * 
+ * @property string $imageUrl
  */
 class Banner extends \yii\db\ActiveRecord
 {
@@ -132,6 +134,7 @@ class Banner extends \yii\db\ActiveRecord
     public function beforeDelete()
     {
         $rm = implode(DIRECTORY_SEPARATOR, [Yii::getAlias('@webroot'), self::UPLOAD_DIR, $this->id]);
+		Yii::info(sprintf('remove banner directory: %s', $rm));
 		\yii\helpers\FileHelper::removeDirectory($rm);
 		return parent::beforeDelete();
     }

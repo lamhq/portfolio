@@ -260,5 +260,13 @@ class Helper {
 				mb_strtolower($clean, 'UTF-8') :
 				strtolower($clean) :
 			$clean;
-	}	
+	}
+	
+	static public function getUploadFileLink($filename) {
+		return Yii::getAlias('@web') .'/'. Yii::$app->params['ajaxUploadDir'] .'/'.$filename;
+	}
+	
+	static public function getUploadFilePath($filename) {
+		return Yii::getAlias('@webroot') .DIRECTORY_SEPARATOR. Yii::$app->params['ajaxUploadDir'] .DIRECTORY_SEPARATOR.$filename;
+	}
 }

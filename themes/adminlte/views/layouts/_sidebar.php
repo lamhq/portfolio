@@ -16,6 +16,7 @@
 			'activateParents'=>true,
 			'items'=>[
 				['label'=>Yii::t('app', 'Post'), 'url'=>['/backend/post'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
+				['label'=>Yii::t('app', 'Page'), 'url'=>['/backend/page'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 				['label'=>Yii::t('app', 'Category'), 'url'=>['/backend/category'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 				['label'=>Yii::t('app', 'Banner'), 'url'=>['/backend/banner'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 			]

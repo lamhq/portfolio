@@ -5,8 +5,8 @@ Yii::setAlias('@api', realpath(__DIR__.'/../modules/api'));
 $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
 	'basePath' => dirname(__DIR__),
-	'id' => 'blog',
-	'name' => 'Onehome Blog',
+	'id' => 'portfolio',
+	'name' => 'Lam Huynh\'s Portfolio',
 	'timeZone' => 'Asia/Bangkok',
 	'language' => 'en-US',
 	'sourceLanguage' => 'en-US',
@@ -15,7 +15,7 @@ $config = [
 	'components' => [
 		'db' => [
 			'class' => 'yii\db\Connection',
-			'dsn' => 'mysql:host=localhost;dbname=blog',
+			'dsn' => 'mysql:host=localhost;dbname=portfolio',
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
@@ -59,15 +59,22 @@ $config = [
 		],
 		'view' => [
 			'theme' => [
-				'basePath' => '@webroot/themes/blog',
-				'baseUrl' => '@web/themes/blog',
+				'basePath' => '@webroot/themes/oran',
+				'baseUrl' => '@web/themes/oran',
 				'pathMap' => [
-					'@app/views' => '@webroot/themes/blog/views',
-					'@app/widgets/views' => '@webroot/themes/blog/views/widgets',
+					'@app/views' => '@webroot/themes/oran/views',
 					'@app/modules/backend/views' => '@webroot/themes/adminlte/views'
 				],
 			],
-		]
+		],
+		'log' => [
+			'targets' => [
+				'file' => [
+					'class' => 'yii\log\FileTarget',
+					'categories' => ['yii\web\HttpException:404'],
+				],
+			],
+		],	
 	],
 	'modules' => [
 		'backend' => [

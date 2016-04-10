@@ -1,0 +1,480 @@
+/*
+Theme Name: Lam Huynh Portfolio
+Author: Lam Huynh
+Author URI: https://lamhq.com/
+Description: My second portfolio.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: fixed-layout, responsive-layout, two-columns, left-sidebar, custom-menu, featured-images
+Text Domain: lhport
+
+This theme, for my personal use
+*/
+
+
+/**
+ * Table of Contents
+ *
+ * 1.0 - Elements
+ * 2.0 - Font
+ * 3.0 - Header
+ * 4.0 - Navigation
+ * 5.0 - Page content
+ * 6.0 - Portfolio
+ * 7.0 - Tag
+ * 8.0 - Carousel
+ * 9.0 - Rounded Image
+ * 10.0 - Fancy box
+ * 11.0 - Skill level
+ * 12.0 - Contact
+ * 13.0 - Media Queries
+ * 14.0 - Pagination
+ */
+
+
+/**
+ * 1.0 - Elements
+ */
+
+a {
+	color: #D9593D;
+}
+
+a:hover {
+  color: #A13821;
+	text-decoration: none;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: "Trebuchet MS",Helvetica,sans-serif;
+  font-size: 15px;
+}
+
+h1, h2, h3 {
+  color: #d9593d;
+  font-family: "League Gothic",helvetica,arial,sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+ol, ul {
+  margin-bottom: 15px;
+}
+
+.screen-reader-text {
+  border: 0 none;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+/**
+  * 2.0 - Font
+  */
+
+@font-face {
+    font-family: "League Gothic";
+    src: url('../font/leaguegothic-regular-webfont.eot');
+    src: url('../font/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/leaguegothic-regular-webfont.woff2') format('woff2'),
+         url('../font/leaguegothic-regular-webfont.woff') format('woff'),
+         url('../font/leaguegothic-regular-webfont.ttf') format('truetype'),
+         url('../font/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/**
+  * 3.0 - Header
+  */
+
+#page-header {
+  background-color: #272123;
+  border-right: 5px solid #d0d0d0;
+  height: 100%;
+  padding: 20px 20px 0 20px;
+  position: fixed;
+  width: 225px;
+  text-align: right;
+-webkit-box-shadow: 1px 0 0 1px #bababa;
+box-shadow: 1px 0 0 1px #bababa;
+}
+
+#page-header a {
+  color: #67585e;
+}
+
+#page-header a:hover {
+  color: #fff;
+}
+
+.tagline {
+  color: #d9593d;
+  font-family: "League Gothic";
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+/**
+  * 4.0 - Navigations
+  */
+
+#page-header ul {
+  list-style: outside none none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+#main-nav a {
+  font-family: "League Gothic";
+  font-size: 26px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#main-nav a.active {
+  color: #c7f9dc;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+}
+
+.navbar-collapse { 
+  padding: 0;
+  border-top: none;
+  box-shadow: none;
+}
+
+.navbar-toggle {
+    background-color: #f2f2f2;
+}
+
+
+/**
+  * 5.0 - Page content
+  */
+
+#page-content {
+  margin-left: 225px;
+  padding-top: 15px;
+}
+
+#page-content section {
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 60px;
+  margin-top: 0;
+  text-align: right;
+}
+
+
+/**
+  * 6.0 - Portfolio
+  */
+
+.portfolio {
+  margin: 30px auto;
+  max-height: 280px;
+  max-width: 280px;
+  text-align: center;
+  opacity: 0.7;
+  position: relative;
+  overflow: hidden;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in;
+}
+
+.portfolio a {
+	outline: none;
+}
+
+.portfolio .wrapper {
+  background-color: #272123;
+  bottom:-280px;
+  color: #f0f3cd;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  font-size: 13px;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in;
+}
+
+.portfolio:hover {
+  background-color: #272123;
+  border-color: #272123;
+  opacity: 1;
+}
+
+.portfolio:hover .wrapper {
+  bottom: 0;
+}
+
+.portfolio header h2 {
+  color: inherit;
+  font-size: 24px;
+  line-height: 25px;
+  margin: 15px 0 5px;
+}
+
+.portfolio .content {
+  padding-bottom: 15px;
+}
+
+.portfolio-single h1 {
+  margin-top: 0;
+}
+
+.btn-port {
+  background-color: #d9593d;
+  color: #fff;
+  font-family: "League Gothic";
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in;
+}
+
+.btn-port:hover {
+  background-color: #67585e;
+  color: #fff;
+}
+
+
+/**
+  * 7.0 - Tag
+  */
+
+.tags {
+	margin-left: 0;
+}
+
+.tag:before {
+  content: "\f02b";
+  font-family: FontAwesome;
+  color: #f0f3cd;
+  margin-right: 5px;
+}
+
+li.tag {
+  background-color: #67585e;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 7px;
+  margin: 0 10px 10px 0;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in;
+}
+
+.tag:hover {
+  background-color: #d9593d;
+}
+
+.tag a {
+  color: #f0f3cd;
+}
+
+.tag.active {
+	background-color: #d9593d;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  color: #f0f3cd;
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 7px;
+}
+
+
+/**
+  * 8.0 - Carousel
+  */
+
+.portfolio-single .carousel {
+  max-height: 480px;
+  overflow: hidden;
+}
+
+.portfolio-single .carousel img {
+  width: 100%;
+}
+
+.carousel .carousel-control {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.carousel .fa {
+  color: #d9593d;
+}
+
+.carousel-indicators li {
+  background-color: #67585e;
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: #d9593d;
+}
+
+
+/**
+ * 9.0 - Rounded Image
+ */
+
+.img-wrapper {
+  background-color: #d0d0d0;
+  border: 1px solid #b9b9b9;
+  padding: 9px;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.img-wrapper img {
+    -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+
+/**
+ * 10.0 - Fancy box
+ */
+
+.fancybox-nav:focus {
+  outline: none;
+}
+
+
+/**
+ * 11.0 - Skill level
+ */
+
+.skill-table .level {
+  color: #d9593d;
+  font-size: 19px;
+}
+
+.skill-table td.name {
+  text-align: right;
+}
+
+.skill-table td, .skill-table th {
+  text-align: center;
+}
+
+.table > thead > tr > th {
+  border-bottom: none;
+}
+
+.skill-table th {
+  font-family: "League Gothic";
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+/**
+ * 12.0 - Contact
+ */
+
+.contact-info .fa {
+  display: inline-block;
+  width: 30px;
+}
+
+
+/**
+ * 13.0 - Media Queries
+ */
+
+@media (min-width: 0px) and (max-width: 700px) {
+  #page-header {
+    height: auto;
+    position: static;
+    width: auto;
+    text-align: left;
+    border-right: none;
+    border-bottom: 5px solid #d0d0d0;
+-webkit-box-shadow: 0 1px 0 1px #bababa;
+box-shadow: 0 1px 0 1px #bababa;
+  }
+
+  #page-content {
+    margin-left: 0;
+  }
+
+  .navbar-default {
+    display: block;
+  }
+}
+
+
+/**
+ * 14.0 - Pagination
+ */
+
+.pagination {
+  display: block;
+  text-align: center;
+}
+
+.page-numbers.current, .page-numbers:hover {
+  background-color: #d9593d;
+  border-color: #a13821;
+  color: white;
+}
+
+.page-numbers {
+  background-color: #fffee9;
+  border: 1px solid #b9b9b9;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  color: #b9b9b9;
+  display: inline-block;
+  font-weight: bold;
+  height: 30px;
+  margin-right: 10px;
+  padding-top: 4px;
+  text-align: center;
+  width: 30px;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in;
+}
