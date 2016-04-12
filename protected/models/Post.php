@@ -56,7 +56,6 @@ class Post extends \yii\db\ActiveRecord {
 	public function rules() {
 		return [
 			[['title', 'status', 'content'], 'required', 'on'=>['create', 'update'] ],
-			[['content'], 'string'],
 			[['short_content', 'content'], 'string'],
 			[['type', 'status', 'author_id'], 'integer'],
 			[['created_at', 'updated_at', 'uploadImages', 'selectedCategories', 'tagValues'], 'safe'],
@@ -419,13 +418,6 @@ class Post extends \yii\db\ActiveRecord {
 			]);
 			$at->save();
 		}
-		
-		// delete empty tag
-		Tag::deleteAll('id not in (select tag_id from {{%post_tag}})');
-	}
-	
-	public function getTagListData() {
-		return \yii\helpers\ArrayHelper::map(Tag::find()->all(), 'id', 'name');
 	}
 	
     /**

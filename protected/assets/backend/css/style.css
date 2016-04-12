@@ -56,3 +56,7 @@ a.asc:after {
 }
 
 .grid-view .summary { margin-bottom: 10px }
+
+.select2-dropdown .select2-search__field:focus, .select2-search--inline .select2-search__field:focus {
+  border: medium none;
+}

@@ -47,11 +47,18 @@ function setupBannerUploadWidget (options) {
 	};
 	
 	var createPreviewItem = function (data) {
+		var tpl = '<li><img src="{{LINK}}" alt=""/>'
+				+'<p class="name">{{NAME}}</p>'+
+				+'&nbsp;<a class="remove fa fa-trash" href="javascript:void(0)"></a>' +
+				+'<input type="hidden" name="' +options.name+ (options.multiple ? '[]' : '') +'[image]'
+				+'" value="' +filename+ '" />'
+			+'</li>';
 		var filename = data.value;
-		var removeButton = '&nbsp;<a class="remove fa fa-remove" href="javascript:void(0)"></a>';
-		var hiddenInput = '<input type="hidden" name="' +options.name+ (options.multiple ? '[]' : '') 
+		var image = '<img src="'+data.link+'" alt=""/>';
+		var removeButton = '&nbsp;<a class="remove fa fa-trash" href="javascript:void(0)"></a>';
+		var id = '<input type="hidden" name="' +options.name+ (options.multiple ? '[]' : '') +'[image]'
 			+ '" value="' +filename+ '" />';
-		return '<li>'+filename + removeButton + hiddenInput + '</li>';
+		return '<li>'+ image + filename + removeButton + id + '</li>';
 	};
 
 	widget.on('change', '.banner-file-input', function() {
@@ -68,7 +75,8 @@ function setupBannerUploadWidget (options) {
 	});
 
 	widget.on('click', '.remove', function() {
-		$(this).parent().remove();
+		var p = $(this).closest('li');
+		p.remove();
 		if (widget.find('.files li').size()<1) {
 			var hidden = '<input type="hidden" name="' +options.name+ '" value="" class="holder" />';
 			widget.append(hidden);

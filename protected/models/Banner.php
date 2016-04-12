@@ -21,6 +21,7 @@ class Banner extends \yii\db\ActiveRecord
     const TYPE_RIGHT = 1;
     const TYPE_BOTTOM = 2;
     const TYPE_POST = 3;
+    const TYPE_PROJECT = 4;
 	const UPLOAD_DIR = 'media/banner';
 	
 	/**

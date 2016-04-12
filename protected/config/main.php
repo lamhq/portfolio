@@ -1,6 +1,7 @@
 <?php
 Yii::setAlias('@backend', realpath(__DIR__.'/../modules/backend'));
 Yii::setAlias('@api', realpath(__DIR__.'/../modules/api'));
+Yii::setAlias('@portfolio', realpath(__DIR__.'/../modules/portfolio'));
 
 $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
@@ -71,7 +72,8 @@ $config = [
 			'targets' => [
 				'file' => [
 					'class' => 'yii\log\FileTarget',
-					'categories' => ['yii\web\HttpException:404'],
+					'levels' => ['info'],
+					'categories'=> ['application']
 				],
 			],
 		],	
@@ -105,6 +107,7 @@ $config = [
             'uploadUrl' => '@web/media/wyswyg',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
+		'portfolio'
     ],
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015

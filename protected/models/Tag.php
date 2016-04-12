@@ -40,4 +40,9 @@ class Tag extends \yii\db\ActiveRecord
             'name' => 'Name',
         ];
     }
+	
+	static public function getListData() {
+		return \yii\helpers\ArrayHelper::map(Tag::find()->all(), 'id', 'name');
+	}
+	
 }
