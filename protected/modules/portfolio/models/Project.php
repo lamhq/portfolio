@@ -30,6 +30,8 @@ class Project extends \yii\db\ActiveRecord
 {
 	private $_uploadImages;
 	private $_tagValues = null;
+	const STATUS_ACTIVE = 1;
+	const STATUS_INACTIVE = 2;
 	
     /**
      * @inheritdoc
@@ -110,6 +112,16 @@ class Project extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Banner::className(), ['id' => 'banner_id'])
             ->viaTable('{{%project_banner}}', ['project_id' => 'id']);
+    }	
+	
+	/**
+	 * @return string
+	 */
+	public function getFeaturedImage($width=null, $height=null, $watermark=false)
+    {
+        $model = $this->hasOne(Banner::className(), ['id' => 'banner_id'])
+            ->viaTable('{{%project_banner}}', ['project_id' => 'id'])->one();
+		return $model ? $model->getImageUrl($width, $height, $watermark) : NULL;
     }	
 	
 	public function getUploadImages() {

@@ -218,8 +218,7 @@ class Helper {
 	 */
 	static public function holderImage($url, $width, $height, $options=array()) {
 		$options = array_merge(array('class'=>'img-responsive'), $options);
-		return Html::img(self::holderUrl($url, $width, $height), 
-			'', $options);
+		return Html::img(self::holderUrl($url, $width, $height), $options);
 	}
 
 	/*

@@ -12,10 +12,9 @@ class Module extends \yii\base\Module {
 	public function init() {
 		parent::init();
 		// set theme adminlte for backend module
-		Yii::$app->view->theme->pathMap = [
-			'@app/widgets/views' => '@webroot/themes/adminlte/views/widgets',
-			'@app/modules/backend/views' => '@webroot/themes/adminlte/views',
-		];
+		$theme = Yii::$app->view->theme;
+		$theme->pathMap['@app/modules/backend/views'] = '@webroot/themes/adminlte/views';
+		
 		// set access rules
 		$this->on(Controller::EVENT_BEFORE_ACTION, function($event) {
 			Yii::$app->controller->attachBehavior('access', [

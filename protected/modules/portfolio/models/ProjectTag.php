@@ -3,7 +3,7 @@
 namespace portfolio\models;
 
 use Yii;
-use app\models\Tag;
+use portfolio\models\Tag;
 
 /**
  * This is the model class for table "{{%project_tag}}".

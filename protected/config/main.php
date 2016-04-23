@@ -11,7 +11,7 @@ $config = [
 	'timeZone' => 'Asia/Bangkok',
 	'language' => 'en-US',
 	'sourceLanguage' => 'en-US',
-	'defaultRoute' => 'site/index',
+	'defaultRoute' => '/portfolio/project/index',
 	
 	'components' => [
 		'db' => [
@@ -64,7 +64,6 @@ $config = [
 				'baseUrl' => '@web/themes/oran',
 				'pathMap' => [
 					'@app/views' => '@webroot/themes/oran/views',
-					'@app/modules/backend/views' => '@webroot/themes/adminlte/views'
 				],
 			],
 		],
@@ -107,7 +106,9 @@ $config = [
             'uploadUrl' => '@web/media/wyswyg',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
-		'portfolio'
+		'portfolio'=>[
+			'class' => 'portfolio\Module',
+		]
     ],
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015
