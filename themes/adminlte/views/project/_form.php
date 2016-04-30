@@ -15,6 +15,8 @@ use kartik\select2\Select2;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+	
+    <?= $form->field($model, 'reference')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'short_content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 

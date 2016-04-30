@@ -1,3 +1,8 @@
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
 function setupBannerUploadWidget (options) {
 	var widget = $('#'+options.id);
 
@@ -33,7 +38,7 @@ function setupBannerUploadWidget (options) {
 			if(request.readyState == 4){	// done
 				try {
 					var resp = JSON.parse(request.response);
-					widget.find('.files').append(createPreviewItem(resp));
+					widget.find('.files').append(createItem(resp));
 					widget.find('.holder').remove();
 					widget.find('.loader').addClass('hide');
 				} catch (e){ }
@@ -46,19 +51,18 @@ function setupBannerUploadWidget (options) {
 		return true;
 	};
 	
-	var createPreviewItem = function (data) {
-		var tpl = '<li><img src="{{LINK}}" alt=""/>'
-				+'<p class="name">{{NAME}}</p>'+
-				+'&nbsp;<a class="remove fa fa-trash" href="javascript:void(0)"></a>' +
-				+'<input type="hidden" name="' +options.name+ (options.multiple ? '[]' : '') +'[image]'
-				+'" value="' +filename+ '" />'
-			+'</li>';
-		var filename = data.value;
-		var image = '<img src="'+data.link+'" alt=""/>';
-		var removeButton = '&nbsp;<a class="remove fa fa-trash" href="javascript:void(0)"></a>';
-		var id = '<input type="hidden" name="' +options.name+ (options.multiple ? '[]' : '') +'[image]'
-			+ '" value="' +filename+ '" />';
-		return '<li>'+ image + filename + removeButton + id + '</li>';
+	var createItem = function (data) {
+		var inputName = options.name+ (options.multiple ? '[]' : '') +'[image]';
+		var template = '<div class="col-md-3"><div class="inn">'
+				+'<img src="{{LINK}}" alt="" class="img-responsive"/>'
+				+'<p class="name">{{NAME}}</p>'
+				+'&nbsp;<a class="remove fa fa-trash" href="javascript:void(0)"></a>'
+				+'<input type="hidden" name="{{INPNAME}}" value="{{NAME}}" />'
+			+'</div></div>';
+		var html = template.replaceAll('{{NAME}}', data.value)
+			.replaceAll('{{INPNAME}}', inputName)
+			.replaceAll('{{LINK}}', data.link);
+		return html;
 	};
 
 	widget.on('change', '.banner-file-input', function() {
@@ -75,12 +79,20 @@ function setupBannerUploadWidget (options) {
 	});
 
 	widget.on('click', '.remove', function() {
-		var p = $(this).closest('li');
+		var p = $(this).closest('.item');
 		p.remove();
-		if (widget.find('.files li').size()<1) {
+		if (widget.find('.files .item').size()<1) {
+//			var inputName = options.name+ (options.multiple ? '[]' : '') +'[image]';
 			var hidden = '<input type="hidden" name="' +options.name+ '" value="" class="holder" />';
 			widget.append(hidden);
 		}
+		
+	});
+	
+	$('.banner-upload-widget .files').sortable({
+		opacity: 0.6,
+		revert: true,
+		placeholder: 'sortable-placeholder col-md-3',
+		cursor: 'move'
 	});
 }
-

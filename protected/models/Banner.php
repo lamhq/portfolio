@@ -13,6 +13,7 @@ use app\components\Helper;
  * @property string $image
  * @property integer $type
  * @property string $link
+ * @property integer $display_order
  * 
  * @property string $imageUrl
  */

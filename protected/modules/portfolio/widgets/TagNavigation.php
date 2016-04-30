@@ -12,10 +12,10 @@ use app\components\Helper;
  */
 class TagNavigation extends Widget {
 	
-	/**
-	 * @var int id of current active tag
+	/*
+	 * project id to filter tag list
 	 */
-	public $activeTag = null;
+	public $project = false;
 	
 	/**
 	 * Executes the widget.
@@ -23,10 +23,16 @@ class TagNavigation extends Widget {
 	 * the widget
 	 */
 	public function run() {
-		$tags = Tag::find()->innerJoinWith('projectTag',true)->all();
+		$active = \Yii::$app->request->get('tag');
+		$query = Tag::find()->innerJoinWith('projectTag',true);
+		if ($this->project) {
+			$query->andWhere(['project_id'=>$this->project]);
+		}
+		$tags = $query->all();
 		return $this->render('tag-navigation', [
 			'tags'=>$tags,
-			'activeId'=> $this->activeTag
+			'activeTag'=> $active,
+			'project' => $this->project
 		]);
 	}
 

@@ -89,8 +89,6 @@ class Helper {
 		$watermarkFile = $setting['watermarkFile'];
 		
 		// load image from disk
-		$newWidth = $width;
-		$newHeight = $height;
 		$image_type = exif_imagetype($srcImg);
 		switch ($image_type) {
 			case IMAGETYPE_GIF: 
@@ -124,6 +122,8 @@ class Helper {
 		}
 		$oldWidth = imagesx($old);
 		$oldHeight = imagesy($old);
+		$newWidth = is_null($width) ? $oldWidth*$height/$oldHeight : $width;
+		$newHeight = is_null($height) ? $oldHeight*$width/$oldWidth : $height;
 
 		// resize image
 		$new = imagecreatetruecolor($newWidth, $newHeight);

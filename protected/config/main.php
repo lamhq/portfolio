@@ -72,7 +72,8 @@ $config = [
 				'file' => [
 					'class' => 'yii\log\FileTarget',
 					'levels' => ['info'],
-					'categories'=> ['application']
+//					'categories'=> ['application'],
+					'categories'=> ['yii\db\*']
 				],
 			],
 		],	

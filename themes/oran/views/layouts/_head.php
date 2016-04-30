@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
-
+use yii\web\View;
+$this->registerJs("app.setupMenu();", View::POS_END);
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>

@@ -21,6 +21,7 @@ use yii\db\Expression;
  * @property string $slug
  * @property string $created_at
  * @property string $updated_at
+ * @property string $reference
  *
  * @property ProjectTag[] $projectTags
  * @property Tag[] $tags
@@ -50,7 +51,7 @@ class Project extends \yii\db\ActiveRecord
 			[['title', 'status', 'content'], 'required', 'on'=>['create', 'update'] ],
             [['short_content', 'content'], 'string'],
             [['status'], 'integer'],
-            [['created_at', 'updated_at', 'uploadImages', 'tagValues'], 'safe'],
+            [['created_at', 'updated_at', 'uploadImages', 'tagValues', 'reference'], 'safe'],
             [['title', 'slug'], 'string', 'max' => 255],
         ];
     }
@@ -70,6 +71,7 @@ class Project extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
 			'tagValues' => 'Tags',
+			'reference' => 'Website Url',
         ];
     }
 
@@ -111,7 +113,7 @@ class Project extends \yii\db\ActiveRecord
 	public function getImages()
     {
         return $this->hasMany(Banner::className(), ['id' => 'banner_id'])
-            ->viaTable('{{%project_banner}}', ['project_id' => 'id']);
+			->viaTable('{{%project_banner}}', ['project_id' => 'id'])->orderBy('display_order');
     }	
 	
 	/**
@@ -132,9 +134,11 @@ class Project extends \yii\db\ActiveRecord
 	}
 	
 	public function setUploadImages($value) {
-		if (!is_array($value)) throw new Exception ('uploaded images must be an array.');
+		if (!is_array($value)) $value = [];
 		$models = [];
+
 		/* @var $model \app\models\Banner */
+		$i = 0;
 		foreach($value as $data) {
 			// import form data [id?, image]
 			if (is_array($data)) {
@@ -149,6 +153,8 @@ class Project extends \yii\db\ActiveRecord
 			} else {
 				$model = $data;
 			}
+			$i++;
+			$model->display_order = $i;
 			$models[] = $model;
 		}
 		$this->_uploadImages = $models;
@@ -184,7 +190,7 @@ class Project extends \yii\db\ActiveRecord
 	}
 	
 	public function getUrl() {
-		$route = '/project/view';
+		$route = '/portfolio/project/view';
 		$params = [$route, 'id'=>$this->id];
 		$params['slug'] = $this->slug;
 		return Url::to($params, true);

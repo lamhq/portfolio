@@ -25,9 +25,9 @@ use yii\helpers\Url;
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="clearfix" id="main-nav">
-			<li><a class="active" href="<?= Url::to(['project']) ?>">Projects</a></li>
+			<li><a href="<?= Url::to(['/portfolio/project']) ?>">Projects</a></li>
 			<li><a href="<?= Post::getUrlBySlug('about') ?>">About</a></li>
-			<li><a href="<?= Url::to(['site/contact']) ?>">Contact</a></li>
+			<li><a href="<?= Url::to(['/site/contact']) ?>">Contact</a></li>
 		</ul>
 
 		<div class="social-links">

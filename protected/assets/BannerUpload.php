@@ -11,6 +11,7 @@ class BannerUpload extends AssetBundle
     }
     
     public $css = [
+		'style.css'
     ];
     
     public $js = [

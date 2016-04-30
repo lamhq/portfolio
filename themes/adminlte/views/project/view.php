@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'value'=> Html::a($model->url, $model->url),
 			],
             'title',
+            'reference',
             'short_content:html',
             'content:html',
             [

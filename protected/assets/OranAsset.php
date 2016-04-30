@@ -12,6 +12,7 @@ class OranAsset extends AssetBundle
     ];
     
     public $js = [
+		'js/custom.js'
     ];
 
     public $depends = [

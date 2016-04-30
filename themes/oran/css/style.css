@@ -143,7 +143,7 @@ box-shadow: 1px 0 0 1px #bababa;
   letter-spacing: 1px;
 }
 
-#main-nav a.active {
+#main-nav li.active a {
   color: #c7f9dc;
 }
 
