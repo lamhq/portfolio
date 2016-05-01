@@ -82,7 +82,6 @@ function setupBannerUploadWidget (options) {
 		var p = $(this).closest('.item');
 		p.remove();
 		if (widget.find('.files .item').size()<1) {
-//			var inputName = options.name+ (options.multiple ? '[]' : '') +'[image]';
 			var hidden = '<input type="hidden" name="' +options.name+ '" value="" class="holder" />';
 			widget.append(hidden);
 		}

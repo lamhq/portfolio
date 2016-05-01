@@ -7,6 +7,7 @@ use yii\web\Controller;
 use app\models\LoginForm;
 use app\models\AccountForm;
 use app\models\Post;
+use app\models\ContactForm;
 use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller {
@@ -27,8 +28,7 @@ class SiteController extends Controller {
 	/**
 	 * @inheritdoc
 	 */
-	public function beforeAction($action)
-	{            
+	public function beforeAction($action) {
 		if ($action->id == 'ajaxUpload') {
 			$this->enableCsrfValidation = false;
 		}
@@ -82,26 +82,37 @@ class SiteController extends Controller {
 		return $this->render('account', ['model' => $model]);
 	}
 
-	public function actionSearch($s='') {
+	public function actionSearch($s = '') {
 		$query = Post::find()
-			->where('title LIKE :s OR content LIKE :s',[
-				':s'=>'%'.$s.'%',
-			]);
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+			->where('title LIKE :s OR content LIKE :s', [
+			':s' => '%' . $s . '%',
+		]);
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
 			'pagination' => [
 				'pageSize' => \Yii::$app->params['pageSize'],
 			],
-        ]);
+		]);
 		$this->layout = '2col-right';
 		return $this->render('search', [
-            'search' => $s,
-            'dataProvider' => $dataProvider,
+				'search' => $s,
+				'dataProvider' => $dataProvider,
 		]);
-		
 	}
-	
+
 	public function actionTest() {
 		return $this->renderPartial('test');
 	}
+
+	public function actionContact() {
+		$model = new ContactForm();
+		if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+			Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+			return $this->refresh();
+		}
+		return $this->render('contact', [
+				'model' => $model,
+		]);
+	}
+
 }

@@ -27,10 +27,11 @@ $config = [
 			'class' => 'yii\web\UrlManager',
 			'enablePrettyUrl' => true,
 			'showScriptName' => false,
+			'suffix'=>'.html',
 			'rules'=>[
-				'post/<id:\d+>/<cat:.*>/<slug:.*>' => 'post/view',
-				'post/<id:\d+>/<slug:.*>' => 'post/view',
-				'category/<id:\d+>/<slug:.*>' => 'category/view',
+				'<id:\d+>/<slug:.*>' => '/portfolio/project/view',
+				'tag/<tag:.*>' => '/portfolio/project',
+				'' => '/portfolio/project',
 			]
 		],
 		'user' => [
@@ -114,7 +115,8 @@ $config = [
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015
 		'pageSize' => 20,
-		'ajaxUploadDir' => 'assets/upload'
+		'ajaxUploadDir' => 'assets/upload',
+		'adminEmail' => 'daibanglam@gmail.com',
 	],
 ];
 

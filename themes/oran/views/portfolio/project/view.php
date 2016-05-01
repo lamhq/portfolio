@@ -2,11 +2,14 @@
 /* @var $this yii\web\View */
 /* @var $model \portfolio\models\Project */
 $images = [];
-/* 	$('.fancybox').fancybox({
+\omnilight\assets\FancyBoxAsset::register($this);
+$this->registerJs("
+	$('.fancybox').fancybox({
         padding : 0,
         fitToView: false,
         maxWidth: '90%'
-    }); */
+    });
+", yii\web\View::POS_END);
 ?>
 <article class="portfolio-single">
 	<div class="row">

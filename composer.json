@@ -9,7 +9,8 @@
 		"kartik-v/yii2-widget-datetimepicker": "~1.4.0",
 		"yiidoc/yii2-redactor": "*",
 		"kartik-v/yii2-widget-select2": "^2.0",
-		"yiisoft/yii2-jui": "^2.0"
+		"yiisoft/yii2-jui": "^2.0",
+		"omnilight/yii2-fancybox": "^1.0"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",

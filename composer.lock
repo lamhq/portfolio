@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dff4071f7d16887f704ac6a23182ca88",
-    "content-hash": "893883b19e44179b6cbec664c45903c5",
+    "hash": "e321ec39adf5822c00c3bc06a517a1b8",
+    "content-hash": "f70f0bbe28e563c2aff5e5c8a00fb696",
     "packages": [
         {
             "name": "bower-asset/admin-lte",
@@ -101,6 +101,22 @@
                 "responsive",
                 "web"
             ]
+        },
+        {
+            "name": "bower-asset/fancybox",
+            "version": "v2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fancyapps/fancyBox.git",
+                "reference": "e2248f468dc4b45f5b1ef1776bde958b2b52775d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fancyapps/fancyBox/zipball/e2248f468dc4b45f5b1ef1776bde958b2b52775d",
+                "reference": "e2248f468dc4b45f5b1ef1776bde958b2b52775d",
+                "shasum": ""
+            },
+            "type": "bower-asset-library"
         },
         {
             "name": "bower-asset/font-awesome",
@@ -561,6 +577,45 @@
             "time": "2016-03-10 11:33:59"
         },
         {
+            "name": "omnilight/yii2-fancybox",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/omnilight/yii2-fancybox.git",
+                "reference": "44404d9afedba11aeaffc3ab21a80ff1b08d3f56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/omnilight/yii2-fancybox/zipball/44404d9afedba11aeaffc3ab21a80ff1b08d3f56",
+                "reference": "44404d9afedba11aeaffc3ab21a80ff1b08d3f56",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/fancybox": "~2.1",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "omnilight\\assets\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pavel Agalecky",
+                    "email": "pavel.agalecky@gmail.com"
+                }
+            ],
+            "description": "FancyBox asset for Yii2 framework",
+            "keywords": [
+                "fancybox",
+                "yii2"
+            ],
+            "time": "2015-03-11 09:35:37"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -570,7 +625,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/4799525c7c1b60e3c898ed349f5ab5b19b218687",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/bf40b5635c09e09eaad9c48bcb245ca4a6961401",
                 "reference": "fffbc0e2a7e376dbb0a4b5f2ff6847330f20ccf9",
                 "shasum": ""
             },
@@ -667,7 +722,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/0d3c7aa71311f779c658972cd74ded95a59b42d7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/91180da2a7b316842ad6ff825e75b98c2eafbbd8",
                 "reference": "9dbf8297d3fd677e0b4569f038273c641d9cc871",
                 "shasum": ""
             },
@@ -1313,7 +1368,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/62eddfcbf377353777742b3ceaf2b75dc81178e3",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/6777f007457b4f18597d03ac707581e59a3084b6",
                 "reference": "ce42838abcbef076ebaf46147671d518ae69d028",
                 "shasum": ""
             },
