@@ -27,10 +27,9 @@ $config = [
 			'class' => 'yii\web\UrlManager',
 			'enablePrettyUrl' => true,
 			'showScriptName' => false,
-			'suffix'=>'.html',
 			'rules'=>[
-				'<id:\d+>/<slug:.*>' => '/portfolio/project/view',
-				'tag/<tag:.*>' => '/portfolio/project',
+				'<id:\d+>/<slug:.*>.html' => '/portfolio/project/view',
+				'tag/<tag:.*>.html' => '/portfolio/project',
 				'' => '/portfolio/project',
 			]
 		],

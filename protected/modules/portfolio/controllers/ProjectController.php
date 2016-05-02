@@ -11,7 +11,7 @@ class ProjectController extends Controller {
 		$query = Project::find()->where(['status'=>  Project::STATUS_ACTIVE]);
 		if ($tag) {
 			$query->innerJoinWith(['tags'=> function($query) use ($tag) {
-				$query->andWhere('name LIKE :tag', [':tag'=>$tag]);
+				$query->andWhere('blog_tag.slug LIKE :tag', [':tag'=>$tag]);
 			}], true);
 		}
 		

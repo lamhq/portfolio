@@ -2,7 +2,7 @@
 /* @var $this yii\web\View */
 /* @var $model \portfolio\models\Project */
 $images = [];
-\omnilight\assets\FancyBoxAsset::register($this);
+\lamhq\assets\FancyBoxAsset::register($this);
 $this->registerJs("
 	$('.fancybox').fancybox({
         padding : 0,

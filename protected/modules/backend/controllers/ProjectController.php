@@ -64,6 +64,7 @@ class ProjectController extends Controller
     public function actionCreate()
     {
         $model = new Project();
+        $model->status = Project::STATUS_ACTIVE;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			$model->saveUploadImages();
