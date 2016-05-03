@@ -30,9 +30,13 @@ $config = [
 			'enablePrettyUrl' => true,
 			'showScriptName' => false,
 			'rules'=>[
+				// portfolio module
 				'<id:\d+>/<slug:.*>.html' => '/portfolio/project/view',
 				'tag/<tag:.*>.html' => '/portfolio/project',
 				'' => '/portfolio/project',
+				
+				// diary shortcut
+				'd' => '/diary/activity/index',
 			]
 		],
 		'user' => [

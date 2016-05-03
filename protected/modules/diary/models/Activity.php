@@ -115,7 +115,7 @@ class Activity extends \yii\db\ActiveRecord
 	}
 	
 	public function setInputTime($value) {
-		$this->time = \app\components\Helper::toDbDateTimeFormat($value.':00');
+		$this->time = \app\components\Helper::toDbDateTime($value.':00');
 	}
 	
     /**

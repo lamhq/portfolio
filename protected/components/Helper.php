@@ -6,6 +6,12 @@ use yii\helpers\Html;
 
 class Helper {
 
+	public static function toDbDateTime($value) {
+		$d = date_create_from_format('d/m/Y H:i:s', $value);
+		if (!$d) return null;
+		return $d->format('Y-m-d H:i:s');
+	}
+	
 	/*
 	 * convert input date (from view) to database date format
 	 */

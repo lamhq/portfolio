@@ -1,4 +1,6 @@
 <?php
+ini_set('opcache.enable', false);
+
 $config = \yii\helpers\ArrayHelper::merge(
 require(__DIR__ . '/main.php'), [
 	'components' => [

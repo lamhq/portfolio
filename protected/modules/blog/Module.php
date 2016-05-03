@@ -10,7 +10,7 @@ class Module extends \yii\base\Module {
 		parent::init();
 		// set theme adminlte for diary module
 		$theme = Yii::$app->view->theme;
-		$theme->pathMap['@app/modules/blog/views'] = '@webroot/themes/adminlte/views/modules/diary';
+		$theme->pathMap['@app/modules/blog/views'] = '@webroot/themes/adminlte/views/modules/blog';
 		\diary\assets\DiaryAsset::register(Yii::$app->view);
 		
 		// set access rules
