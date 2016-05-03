@@ -2,6 +2,8 @@
 Yii::setAlias('@backend', realpath(__DIR__.'/../modules/backend'));
 Yii::setAlias('@api', realpath(__DIR__.'/../modules/api'));
 Yii::setAlias('@portfolio', realpath(__DIR__.'/../modules/portfolio'));
+Yii::setAlias('@diary', realpath(__DIR__.'/../modules/diary'));
+Yii::setAlias('@blog', realpath(__DIR__.'/../modules/blog'));
 
 $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
@@ -20,7 +22,7 @@ $config = [
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
-			'tablePrefix' => 'blog_',
+			'tablePrefix' => 'my_',
 			'enableSchemaCache' => YII_ENV_PROD,
 		],
 		'urlManager' => [
@@ -79,43 +81,54 @@ $config = [
 		],	
 	],
 	'modules' => [
-		'backend' => [
-			'class' => 'backend\Module',
-			'accessRules'=>[
-				[
-					'allow' => true,
-					'controllers' => ['backend/site'],
-					'actions' => ['login', 'error'],
-					'roles' => ['?'],
-				],
-				[
-					'allow' => true,
-					'roles' => ['@'],
-				],
-				[
-					'allow' => false,
-					'roles' => ['?'],
-				],
-			]
-		],
-		'api' => [
-            'class' => 'api\Module',
-        ],
+		'backend' => [ 'class' => 'backend\Module' ],
+		'api' => [ 'class' => 'api\Module' ],
+		'portfolio'=>['class' => 'portfolio\Module' ],
+		'diary' => ['class' => 'diary\Module' ],
+		'blog' => ['class' => 'blog\Module' ],
 		'redactor' => [
-            'class' => 'yii\redactor\RedactorModule',
-            'uploadDir' => '@webroot/media/wyswyg',
-            'uploadUrl' => '@web/media/wyswyg',
-            'imageAllowExtensions'=>['jpg','png','gif']
-        ],
-		'portfolio'=>[
-			'class' => 'portfolio\Module',
+			'class' => 'yii\redactor\RedactorModule',
+			'uploadDir' => '@webroot/media/wyswyg',
+			'uploadUrl' => '@web/media/wyswyg',
+			'imageAllowExtensions'=>['jpg','png','gif']
+		],
+		'markdown' => [
+			// the module class
+			'class' => 'kartik\markdown\Module',
+
+			// the controller action route used for markdown editor preview
+			'previewAction' => '/markdown/parse/preview',
+
+			// the list of custom conversion patterns for post processing
+			'customConversion' => [
+				'<table>' => '<table class="table table-bordered table-striped">'
+			],
+
+			// whether to use PHP SmartyPantsTypographer to process Markdown output
+			'smartyPants' => true
 		]
-    ],
+	],
 	'params' => [
 		'dateFormat' => 'd F Y',	// 23 October 2015
 		'pageSize' => 20,
 		'ajaxUploadDir' => 'assets/upload',
 		'adminEmail' => 'daibanglam@gmail.com',
+		'accessRules'=>[
+			[
+				'allow' => true,
+				'controllers' => ['backend/site'],
+				'actions' => ['login', 'error'],
+				'roles' => ['?'],
+			],
+			[
+				'allow' => true,
+				'roles' => ['@'],
+			],
+			[
+				'allow' => false,
+				'roles' => ['?'],
+			],
+		]		
 	],
 ];
 

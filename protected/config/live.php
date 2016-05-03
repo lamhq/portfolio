@@ -4,9 +4,9 @@ require(__DIR__ . '/main.php'), [
 	'components' => [
 		'db' => [
 			'class' => 'yii\db\Connection',
-			'dsn' => 'mysql:host=localhost;dbname=proper47_blog2',
-			'username' => 'proper47_maindb',
-			'password' => '6F&irFz??*-n',
+			'dsn' => 'mysql:host=localhost;dbname=lamhqcom_ma',
+			'username' => 'lamhqcom_ma',
+			'password' => 'c2h5oh',
 		],
 	]
 ]);

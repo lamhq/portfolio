@@ -14,7 +14,7 @@ use yii\widgets\Breadcrumbs;
 <head>
 	<?= $this->render('_head') ?>
 </head>
-<body class="skin-blue <?= ArrayHelper::getValue($this->params, 'body-class') ?>">
+<body class="skin-blue sidebar-collapse sidebar-mini <?= ArrayHelper::getValue($this->params, 'body-class') ?>">
 <?php $this->beginBody() ?>
 <div class="wrapper">
 	<?= $this->render('_header') ?>
