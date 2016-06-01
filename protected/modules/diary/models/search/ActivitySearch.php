@@ -27,6 +27,7 @@ class ActivitySearch extends Activity {
 		'all' => 'All',
 		'7days' => 'Latest 7 days',
 		'month' => 'Current month',
+		'last-month' => 'Last month',
 		'year' => 'Current year',
 		'custom' => 'Custom',
 	];
@@ -81,13 +82,17 @@ class ActivitySearch extends Activity {
 					$from = date('Y-m-01');
 					$to = date('Y-m-t 23:59:59');
 					break;
+				case 'last-month':
+					$from = date("Y-m-01", strtotime("-1 month"));
+					$to = date('Y-m-t 23:59:59', strtotime("-1 month"));
+					break;
 				case 'year':
 					$from = date('Y-01-01');
 					$to = date('Y-12-t 23:59:59');
 					break;
 				case 'custom':
-					$from = \app\components\Helper::toDbDateFormat($this->fromDate);
-					$to = \app\components\Helper::toDbDateFormat($this->toDate).' 23:59';
+					$from = \app\components\Helper::toDbDate($this->fromDate);
+					$to = \app\components\Helper::toDbDate($this->toDate).' 23:59';
 					break;
 			}
 			$query->andFilterWhere(['>=', 'time', $from])
