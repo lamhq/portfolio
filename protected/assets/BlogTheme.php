@@ -3,16 +3,18 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class OranAsset extends AssetBundle
+class BlogTheme extends AssetBundle
 {
-    public $baseUrl = '@web/themes/oran';
+    public $baseUrl = '@web/themes/blog';
     
     public $css = [
-        'css/style.css',
+        'css/plugin.css',
+        'css/main.css',
+        'css/custom.css',
     ];
     
     public $js = [
-		'js/custom.js'
+        'js/plugin.js',
     ];
 
     public $depends = [

@@ -2,7 +2,7 @@
 /* @var $model diary\models\Activity */
 $f = Yii::$app->formatter;
 $this->registerJs("
-MyApp.setActivityData({$model->getJsonData()});
+app.setActivityData({$model->getJsonData()});
 ");
 ?>
 <li class="activity">

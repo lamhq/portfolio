@@ -11,7 +11,6 @@ class Module extends \yii\base\Module {
 		// set theme adminlte for diary module
 		$theme = Yii::$app->view->theme;
 		$theme->pathMap['@app/modules/blog/views'] = '@webroot/themes/adminlte/views/modules/blog';
-		\diary\assets\DiaryAsset::register(Yii::$app->view);
 		
 		// set access rules
 		$this->on(Controller::EVENT_BEFORE_ACTION, function($event) {

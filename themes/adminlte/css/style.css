@@ -3,8 +3,11 @@
  *
  * 1.0 - AdminLTE
  * 2.0 - Elements
- * 3.0 - Blog module
-*/
+ * 3.0 - Diary module
+ * 4.0 - Blog module
+ * 5.0 - Todo
+ * 6.0 - Box
+ */
 
 
 /**
@@ -64,10 +67,75 @@ a.asc:after {
 
 
 /**
- * 3.0 - Blog module
+ * 3.0 - Diary module
+ */
+
+.timeline-header .time { color: #999; margin: 2px 0 0; font-size: 12px; }
+.timeline-header .actions { padding: 3px 5px; cursor: pointer }
+.timeline-footer .label { padding-bottom: 2px }
+.select2-dropdown .select2-search__field:focus, 
+.select2-search--inline .select2-search__field:focus {
+	border: none;
+}
+
+
+/**
+ * 4.0 - Blog module
  */
 
 #post-nav.affix {
 	top: 8px;
 	width: 324px;
+}
+
+
+/**
+ * 5.0 - Todo
+ */
+
+.editable-text { cursor: pointer }
+.editable-input { display:none; border: none; background: transparent; margin-top: -10px; width: 80% }
+.btn-remv-task { cursor: pointer }
+
+.dd-item > button { display: none }
+.todos li input[type="checkbox"] { vertical-align: top; margin-right: 5px }
+
+.todos li.done > .dd-content .name { 
+	text-decoration:line-through; 
+	font-style: italic;
+	color: #999;
+}
+
+.todos li .tools, .box-header .tools {
+  color: #dd4b39;
+  float: right;
+}
+
+.todos .dd-content:hover .tools { display: block }
+.dd-dragel .tools, .todos li .tools {
+  display: none;
+}
+
+.todos .name:first-letter {
+  text-transform: uppercase;
+}
+
+.ace_editor { font-size: 14px !important }
+.plan .stat {
+	color: #ccc;
+	display: inline-block;
+	margin-right: 8px;
+}
+
+.plan .box-body p {
+    text-transform: capitalize;
+}
+
+
+/* 
+ * 6.0 Box
+ */
+
+.box-tools .dropdown-toggle {
+	cursor: pointer;
 }

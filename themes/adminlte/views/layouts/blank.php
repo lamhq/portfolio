@@ -5,7 +5,7 @@ use yii\helpers\ArrayHelper;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-\app\assets\Backend::register($this);
+\app\assets\BackendTheme::register($this);
 
 $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
     $this->params['body-class']

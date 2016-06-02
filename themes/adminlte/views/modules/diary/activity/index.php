@@ -11,8 +11,8 @@ $curDate = null;
 
 $newModel = new diary\models\Activity();
 $this->registerJs("
-MyApp.setActivityData({$newModel->getJsonData()});
-MyApp.setupDiaryPage();
+app.setActivityData({$newModel->getJsonData()});
+app.setupDiaryPage();
 ");
 ?>
 <div class="activity-index ajax-content">

@@ -3,7 +3,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class Backend extends AssetBundle
+class BackendTheme extends AssetBundle
 {
     public $baseUrl = '@web/themes/adminlte';
     
@@ -12,7 +12,9 @@ class Backend extends AssetBundle
     ];
     
     public $js = [
-        'js/app.js'
+        'js/common.js',
+        'js/blog.js',
+        'js/diary.js',
     ];
 
     public $depends = [

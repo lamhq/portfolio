@@ -4,7 +4,7 @@ use yii\helpers\ArrayHelper;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-\app\assets\OranAsset::register($this);
+\app\assets\OranTheme::register($this);
 ?>
 
 <?php $this->beginPage() ?>

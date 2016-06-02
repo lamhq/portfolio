@@ -7,7 +7,7 @@ use yii\widgets\LinkPager;
 
 $this->title = 'Post Listing';
 $this->params['breadcrumbs'][] = $this->title;
-$this->registerJs("MyApp.setupBlogPage();");
+$this->registerJs("app.setupBlogPage();");
 ?>
 <div class="post-index ajax-content row">
 	<div class="col-md-3 col-md-push-9">
