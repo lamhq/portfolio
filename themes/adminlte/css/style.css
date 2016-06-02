@@ -85,6 +85,10 @@ a.asc:after {
 #post-nav.affix { position: static; }
 #post-nav .nav > li > a { display: inline; padding: 0; position: static }
 #post-nav li.active a { color: #fff }
+#post-nav .nav > li > a:hover, 
+#post-nav .nav > li > a:active, 
+#post-nav .nav > li > a:focus { background: transparent none repeat scroll 0 0; }
+
 .post-index .box { margin: 20px 0 0 0; }
 @media (min-width: 1200px) {
 	#post-nav.affix {
