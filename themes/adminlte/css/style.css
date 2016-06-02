@@ -82,10 +82,10 @@ a.asc:after {
 /**
  * 4.0 - Blog module
  */
-#post-nav.affix {
-	position: static;
-}
-
+#post-nav.affix { position: static; }
+#post-nav .nav > li > a { display: inline; padding: 0; position: static }
+#post-nav li.active a { color: #fff }
+.post-index .box { margin: 20px 0 0 0; }
 @media (min-width: 1200px) {
 	#post-nav.affix {
 		position: fixed;

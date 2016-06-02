@@ -7,9 +7,14 @@ var module ={
 		app.setupAjaxForm('form');
 		app.setupAjaxLink('.pagination a');
 		$('.post-content img').addClass('img-responsive');
+		// setup bootstrap affix
 		$('#post-nav').affix({
 			offset: { top: 525 }
 		});
+		
+		// setup bootstrap scrollby
+		$('body').css('position', 'relative');
+		$('body').scrollspy({ target: '#post-nav' });
 	}
 	
 };

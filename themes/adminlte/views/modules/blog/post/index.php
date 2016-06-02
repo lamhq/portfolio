@@ -12,12 +12,13 @@ $this->registerJs("app.setupBlogPage();");
 <div class="post-index ajax-content row">
 	<div class="col-md-3 col-md-push-9">
 		<?= $this->render('_search', ['model'=>$searchModel]) ?>
+
 		<nav id="post-nav">
-			<div class="list-group nav">
-				<?php foreach($searchModel->models as $model): ?>
-				<a class="list-group-item" href="#post<?= $model->id ?>"><?= $model->title ?></a>
-				<?php endforeach; ?>
-			</div>
+		<ul class="list-group nav">
+			<?php foreach($searchModel->models as $model): ?>
+			<li class="list-group-item"><a class="" href="#post<?= $model->id ?>"><?= $model->title ?></a></li>
+			<?php endforeach; ?>
+		</ul>
 		</nav>
 	</div>
 	
@@ -28,9 +29,11 @@ $this->registerJs("app.setupBlogPage();");
 			'options' => ['class' => 'pagination'],
 		]); ?>
 
-		<?php foreach($searchModel->models as $model): ?>
-		<?= $this->render('_post', ['model'=>$model]) ?>
-		<?php endforeach ?>
+		<div class="post-list">
+			<?php foreach($searchModel->models as $model): ?>
+			<?= $this->render('_post', ['model'=>$model]) ?>
+			<?php endforeach ?>
+		</div>
 
 		<?= LinkPager::widget([
 			'pagination' => $searchModel->pagination,
