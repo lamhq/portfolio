@@ -5,10 +5,7 @@ use yii\web\AssetBundle;
 
 class Backend extends AssetBundle
 {
-    public function init(){
-        $this->sourcePath = __DIR__ . '/backend';
-        parent::init();
-    }
+    public $baseUrl = '@web/themes/adminlte';
     
     public $css = [
         'css/style.css'

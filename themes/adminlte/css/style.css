@@ -3,7 +3,8 @@
  *
  * 1.0 - AdminLTE
  * 2.0 - Elements
- */
+ * 3.0 - Blog module
+*/
 
 
 /**
@@ -59,4 +60,14 @@ a.asc:after {
 
 .select2-dropdown .select2-search__field:focus, .select2-search--inline .select2-search__field:focus {
   border: medium none;
+}
+
+
+/**
+ * 3.0 - Blog module
+ */
+
+#post-nav.affix {
+	top: 8px;
+	width: 324px;
 }

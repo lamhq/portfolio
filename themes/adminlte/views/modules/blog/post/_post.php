@@ -3,7 +3,7 @@
 use yii\helpers\Url;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="box box-solid">
+<div class="box box-solid" id="post<?= $model->id ?>">
 	<div class="box-header with-border clearfix">
 		<h3 class="box-title"><?= $model->title ?></h3>
 		<div class="pull-right">
