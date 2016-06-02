@@ -49,13 +49,8 @@ var module ={
 	
 	setActivityData: function (val) {
 		app.activities[val.id] = val;
-	},
-	
-	setupBlogPage: function (val) {
-		app.setupAjaxForm('form');
-		app.setupAjaxLink('.pagination a');
-		$('.post-content img').addClass('img-responsive');
 	}
+	
 };
 
 // merge module code to app object

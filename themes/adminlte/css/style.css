@@ -82,10 +82,16 @@ a.asc:after {
 /**
  * 4.0 - Blog module
  */
-
 #post-nav.affix {
-	top: 8px;
-	width: 324px;
+	position: static;
+}
+
+@media (min-width: 1200px) {
+	#post-nav.affix {
+		position: fixed;
+		top: 8px;
+		width: 22%;
+	}
 }
 
 
