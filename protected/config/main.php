@@ -35,8 +35,10 @@ $config = [
 				'tag/<tag:.*>.html' => '/portfolio/project',
 				'' => '/portfolio/project',
 				
-				// diary shortcut
-				'd' => '/diary/activity/index',
+				// frequently access link
+				'd' => '/diary/activity',
+				'b' => '/blog/post',
+				'b/a' => '/blog/post/create',
 			]
 		],
 		'user' => [
