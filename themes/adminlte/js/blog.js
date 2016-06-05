@@ -15,6 +15,12 @@ var module ={
 		// setup bootstrap scrollby
 		$('body').css('position', 'relative');
 		$('body').scrollspy({ target: '#post-nav' });
+		
+		$('.btnReset').click(function() {
+			$('#postsearch-key, #postsearch-minrating').val('');
+			$("#postsearch-searchtags").select2("val", "");
+			$('.search-form form').submit();
+		});
 	}
 	
 };

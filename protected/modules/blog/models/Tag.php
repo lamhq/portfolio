@@ -40,4 +40,12 @@ class Tag extends \yii\db\ActiveRecord
             'name' => 'Name',
         ];
     }
+	
+	static public function getListData() {
+		$tagQuery = self::find()
+			->from(self::tableName(). ' t')
+			->orderBy('name');
+		
+		return yii\helpers\ArrayHelper::map($tagQuery->all(), 'id', 'name');
+	}
 }

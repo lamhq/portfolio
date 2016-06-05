@@ -7,12 +7,6 @@ use kartik\select2\Select2;
 /* @var $this yii\web\View */
 /* @var $model blog\models\search\PostSearch */
 /* @var $form yii\widgets\ActiveForm */
-$this->registerJs(
-"$('.btnReset').click(function() {
-	$('.search-form .form-group input:checkbox').attr('disabled', 'disabled');
-	$('.search-form .form-group input').val('');
-	$('.search-form form').submit();
-});");
 ?>
 
 <div class="post-search search-form">
@@ -25,7 +19,7 @@ $this->registerJs(
 
     <?= $form->field($model, 'searchTags')->widget(
 		Select2::className(), [
-		'data' => $model->getTagListData(),
+		'data' => blog\models\Tag::getListData(),
 		'options' => [
 			'placeholder'=>'Tags',
 		],
@@ -40,7 +34,7 @@ $this->registerJs(
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btnReset btn btn-default']) ?>
+        <button type="button" class="btnReset btn btn-default">Reset</button>
     </div>
 
     <?php ActiveForm::end(); ?>

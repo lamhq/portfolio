@@ -112,6 +112,9 @@ class PostSearch extends Post
 			->all();
 	}
 	
+	/*
+	 * get available tags in current posts
+	 */
 	public function getTagListData() {
 		$tagQuery = Tag::find()
 			->from(Tag::tableName(). ' t')
