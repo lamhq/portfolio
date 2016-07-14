@@ -47,7 +47,7 @@ $this->registerJs(
 				DateTimePicker::className(),[
 					'type' => DateTimePicker::TYPE_COMPONENT_APPEND,
 					'pluginOptions' => [
-						'format' => 'dd/mm/yyyy',
+						'format' => \app\components\Helper::getBootstrapDatepickerFormat(),
 						'autoclose'=>true,
 						'todayHighlight'=>true,
 						'minView'=>2,	// month view only
@@ -62,7 +62,7 @@ $this->registerJs(
 				DateTimePicker::className(),[
 					'type' => DateTimePicker::TYPE_COMPONENT_APPEND,
 					'pluginOptions' => [
-						'format' => 'dd/mm/yyyy',
+						'format' => \app\components\Helper::getBootstrapDatepickerFormat(),
 						'autoclose'=>true,
 						'todayHighlight'=>true,
 						'minView'=>2,	// month view only

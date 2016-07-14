@@ -6,6 +6,10 @@ use yii\helpers\Html;
 
 class Helper {
 
+	public static function getBootstrapDatepickerFormat() {
+		return 'dd MM yyyy'; // 23 October 2015
+	}
+	
 	public static function toDbDateTime($value) {
 		$d = date_create_from_format('d/m/Y H:i:s', $value);
 		if (!$d) return null;
@@ -18,7 +22,7 @@ class Helper {
 	public static function toDbDate($value) {
 		$d = date_create_from_format(Yii::$app->params['dateFormat'], $value);
 		if (!$d) return null;
-		return $d->format('Y-m-d H:i:s');
+		return $d->format('Y-m-d');
 	}
 	
 	/*

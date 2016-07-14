@@ -71,32 +71,36 @@ class ActivitySearch extends Activity {
 			if ($this->key)
 				$query->andFilterWhere(['like', 'note', $this->key]);
 			
-			$from = '1970-01-01';
-			$to = '2999-01-01';
+			$from = $to = null;
 			switch ($this->dateRange) {
 				case '7days':
 					$from = date('Y-m-d', strtotime("-7 day"));
-					$to = date('Y-m-d 23:59:59');
+					$to = date('Y-m-d');
 					break;
 				case 'month':
 					$from = date('Y-m-01');
-					$to = date('Y-m-t 23:59:59');
+					$to = date('Y-m-t');
 					break;
 				case 'last-month':
 					$from = date("Y-m-01", strtotime("-1 month"));
-					$to = date('Y-m-t 23:59:59', strtotime("-1 month"));
+					$to = date('Y-m-t', strtotime("-1 month"));
 					break;
 				case 'year':
 					$from = date('Y-01-01');
-					$to = date('Y-12-t 23:59:59');
+					$to = date('Y-12-t');
 					break;
 				case 'custom':
 					$from = \app\components\Helper::toDbDate($this->fromDate);
-					$to = \app\components\Helper::toDbDate($this->toDate).' 23:59';
+					$to = \app\components\Helper::toDbDate($this->toDate);
 					break;
 			}
-			$query->andFilterWhere(['>=', 'time', $from])
-				->andFilterWhere(['<=', 'time', $to]);
+			if ($from) {
+				$query->andFilterWhere(['>=', 'time', $from]);
+			}
+
+			if ($to) {
+				$query->andFilterWhere(['<=', 'time', $to.' 23:59:59']);
+			}
 			
 			if ($this->searchTags && $tags = implode(',', $this->searchTags)) {
 				$query
