@@ -1,31 +1,12 @@
--- phpMyAdmin SQL Dump
--- version 4.6.3
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Aug 12, 2016 at 03:44 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
-
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `lamhqcom_ma`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_banner`
---
 
 DROP TABLE IF EXISTS `my_banner`;
 CREATE TABLE `my_banner` (
@@ -36,10 +17,6 @@ CREATE TABLE `my_banner` (
   `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `display_order` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_banner`
---
 
 INSERT INTO `my_banner` VALUES(40, NULL, '1462152626-mir-1.jpg', 4, NULL, 1);
 INSERT INTO `my_banner` VALUES(41, NULL, '1462152626-mir-3.jpg', 4, NULL, 2);
@@ -58,12 +35,6 @@ INSERT INTO `my_banner` VALUES(53, NULL, '1462154181-storagetodoor-2.jpg', 4, NU
 INSERT INTO `my_banner` VALUES(54, NULL, '1462154284-storage-tree-1.jpg', 4, NULL, 1);
 INSERT INTO `my_banner` VALUES(55, NULL, '1462154284-storage-tree-2.jpg', 4, NULL, 2);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_bl_post`
---
-
 DROP TABLE IF EXISTS `my_bl_post`;
 CREATE TABLE `my_bl_post` (
   `id` bigint(20) NOT NULL,
@@ -73,10 +44,6 @@ CREATE TABLE `my_bl_post` (
   `updated_time` datetime DEFAULT NULL,
   `rating` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_bl_post`
---
 
 INSERT INTO `my_bl_post` VALUES(2, 'Jukujo-club - 4394', '![](http://img.thiendia.com/server5/images/93037963623043082667.jpg)\n\n![](http://img.thiendia.com/server5/images/02128743670341432418.jpeg)\n\n![](http://img.thiendia.com/server5/images/07855739977454255957.jpg)\n\n![](http://img.thiendia.com/server5/images/63613559072327981473.jpg)\n\n \n    http://up.4share.vn/f/5a68636f6a6f6c6f/mt_jukujo-club4394_hd.wmv.file\n    http://up.4share.vn/f/3d0f04080d08050f/mt_jukujo-club4395_hd.wmv.file', '2013-02-20 22:59:38', '2015-11-01 14:57:12', 3);
 INSERT INTO `my_bl_post` VALUES(3, '[RDD-149] Sịp nổi', '![](http://img.thiendia.com/server5/images/37720261988323365453.jpg)\n\n![](http://img.thiendia.com/server5/images/03704503250181793838.jpg)\n\n \n    http://up.4share.vn/f/77454e4340454147/mt_RDD149.mp4.file\n    http://www.fshare.vn/file/TYF6NXW6TT', '2013-02-21 13:59:11', '2015-11-01 14:57:12', 3);
@@ -693,22 +660,13 @@ INSERT INTO `my_bl_post` VALUES(679, '28July_ChangesinBilledSection', '```sql\r\
 INSERT INTO `my_bl_post` VALUES(680, 'Link tải Download những cuốn sách Ebook hay nhất mọi thời đại về tâm lý nghệ thuật sống và thành công, làm giàu', '[http://www.sachdaythanhcong.com/2014/12/link-tai-download-sach-ebook-hay-nhat-ve-thanh-cong-lam-giau.html](http://www.sachdaythanhcong.com/2014/12/link-tai-download-sach-ebook-hay-nhat-ve-thanh-cong-lam-giau.html)', '2016-08-01 14:34:37', '2016-08-01 14:34:37', 0);
 INSERT INTO `my_bl_post` VALUES(681, 'Saikin, Imouto no Yousu ga Chotto Okashiinda ga [BD]', 'Con em tôi dạo này hơi lạ\r\n\r\nMột bộ anime lãng mạn về anh trai và em gái, có chút ecchi\r\n\r\n![](http://ani4u.org/wp-content/uploads/2016/03/56589l.jpg "enter image title here")\r\n\r\n', '2016-08-01 16:31:14', '2016-08-01 16:31:14', 3);
 INSERT INTO `my_bl_post` VALUES(682, 'Top 10 bí kíp Cấu trúc dữ liệu & giải thuật', '[https://techmaster.vn/posts/33919/top-10-bi-kip-cau-truc-du-lieu](https://techmaster.vn/posts/33919/top-10-bi-kip-cau-truc-du-lieu)', '2016-08-02 09:56:13', '2016-08-02 09:56:26', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_bl_post_tag`
---
+INSERT INTO `my_bl_post` VALUES(683, '9 Cuốn sách lập trình miễn phí sẽ giúp bạn trở thành chuyên gia', '[](https://techmaster.vn/posts/33697/sach-lap-trinh-mien-phi-phat-trien-ky-nang-lap-trinh)\r\n\r\nHow To Do What You Love & Earn What You’re Worth As A Programmer là một bộ sưu tập các bài viết về các chủ đề của thành công và tiền bạc trong lĩnh vực lập trình. Nó được chia thành hai phần: nửa đầu bàn về những quyết định lớn khi lựa chọn một nghề nghiệp lập trình, nửa thứ hai liên quan đến quá trình tìm kiếm một công việc mơ ước.\r\n\r\nĐây là cuốn sách mà bạn có thể đọc nhanh, nhưng nó dày đặc những lời khuyên và sự khôn ngoan sẽ giúp thay đổi cuộc sống của bạn - hoặc ít nhất, con đường sự nghiệp của bạn. Đây là một cuốn sách "phải đọc" nếu bạn có ý định tìm kiếm một công việc lập trình.', '2016-08-13 18:05:18', '2016-08-13 18:05:18', 0);
 
 DROP TABLE IF EXISTS `my_bl_post_tag`;
 CREATE TABLE `my_bl_post_tag` (
   `post_id` bigint(20) NOT NULL,
   `tag_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_bl_post_tag`
---
 
 INSERT INTO `my_bl_post_tag` VALUES(2, 2);
 INSERT INTO `my_bl_post_tag` VALUES(2, 12);
@@ -2500,22 +2458,15 @@ INSERT INTO `my_bl_post_tag` VALUES(681, 43);
 INSERT INTO `my_bl_post_tag` VALUES(682, 39);
 INSERT INTO `my_bl_post_tag` VALUES(682, 113);
 INSERT INTO `my_bl_post_tag` VALUES(682, 119);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_bl_tag`
---
+INSERT INTO `my_bl_post_tag` VALUES(683, 113);
+INSERT INTO `my_bl_post_tag` VALUES(683, 119);
+INSERT INTO `my_bl_post_tag` VALUES(683, 140);
 
 DROP TABLE IF EXISTS `my_bl_tag`;
 CREATE TABLE `my_bl_tag` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_bl_tag`
---
 
 INSERT INTO `my_bl_tag` VALUES(1, 'fshare');
 INSERT INTO `my_bl_tag` VALUES(2, '4share');
@@ -2638,22 +2589,12 @@ INSERT INTO `my_bl_tag` VALUES(138, 'android');
 INSERT INTO `my_bl_tag` VALUES(139, 'ecchi');
 INSERT INTO `my_bl_tag` VALUES(140, 'resource');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_category`
---
-
 DROP TABLE IF EXISTS `my_category`;
 CREATE TABLE `my_category` (
   `id` int(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_category`
---
 
 INSERT INTO `my_category` VALUES(1, 'Investment Strategies', 'investment-strategies');
 INSERT INTO `my_category` VALUES(2, 'Property Trends', NULL);
@@ -2663,12 +2604,6 @@ INSERT INTO `my_category` VALUES(5, 'Property News', NULL);
 INSERT INTO `my_category` VALUES(6, 'Home Decor', NULL);
 INSERT INTO `my_category` VALUES(7, 'Singapore Living', NULL);
 INSERT INTO `my_category` VALUES(8, 'Tips & Guides', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_comment`
---
 
 DROP TABLE IF EXISTS `my_comment`;
 CREATE TABLE `my_comment` (
@@ -2680,12 +2615,6 @@ CREATE TABLE `my_comment` (
   `post_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_di_activity`
---
-
 DROP TABLE IF EXISTS `my_di_activity`;
 CREATE TABLE `my_di_activity` (
   `id` bigint(20) NOT NULL,
@@ -2694,10 +2623,6 @@ CREATE TABLE `my_di_activity` (
   `income` decimal(18,4) DEFAULT NULL,
   `outcome` decimal(18,4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_di_activity`
---
 
 INSERT INTO `my_di_activity` VALUES(1, '2015-06-15 20:00:00', 'Tập duyệt binh ở ủy ban phường\r\nNội dung: dậm chân và bước theo nhạc', NULL, NULL);
 INSERT INTO `my_di_activity` VALUES(3, '2015-06-12 18:00:00', 'Nhậu với công ty ở quán Lộc Phát\r\nTiễn anh Bảo về quê\r\nĐi hát karaoke ở đường D2', NULL, '140.0000');
@@ -3131,22 +3056,20 @@ INSERT INTO `my_di_activity` VALUES(450, '2016-08-09 11:17:00', 'đi cạo vôi 
 INSERT INTO `my_di_activity` VALUES(451, '2016-08-09 11:22:00', 'sửa quạt', NULL, '100.0000');
 INSERT INTO `my_di_activity` VALUES(452, '2016-08-10 07:04:00', 'đi cafe với Thiệu Đỗ Trọng tại hẻm d2', NULL, '46.0000');
 INSERT INTO `my_di_activity` VALUES(453, '2016-08-11 18:15:00', 'đi cafe với Khiết tại the coffe house cầu trần khánh dư', NULL, '55.0000');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_di_tag`
---
+INSERT INTO `my_di_activity` VALUES(454, '2016-08-08 21:00:00', 'Đưa tiền chợ', NULL, '500.0000');
+INSERT INTO `my_di_activity` VALUES(455, '2016-08-13 10:00:00', 'đổ xăng', NULL, '30.0000');
+INSERT INTO `my_di_activity` VALUES(456, '2016-08-13 10:00:00', 'mua lăn khử mùi ở siêu thị 55k\r\ngửi xe 3k', NULL, '58.0000');
+INSERT INTO `my_di_activity` VALUES(457, '2016-08-13 10:00:00', 'mua nước yến biếu dì Tuyết', NULL, '57.0000');
+INSERT INTO `my_di_activity` VALUES(458, '2016-08-12 18:00:00', 'gửi xe học av', NULL, '12.0000');
+INSERT INTO `my_di_activity` VALUES(459, '2016-08-14 07:06:00', 'đi lễ nhà thờ\r\nquyên góp giáo xứ miền bắc 200\r\ngiáo xú + giữ xe 20', NULL, '220.0000');
+INSERT INTO `my_di_activity` VALUES(460, '2016-08-14 09:07:00', 'đưa tiền chợ tuần sau', NULL, '600.0000');
+INSERT INTO `my_di_activity` VALUES(461, '2016-08-14 09:09:00', 'đưa tiền chợ tuần này còn thiếu', NULL, '100.0000');
 
 DROP TABLE IF EXISTS `my_di_tag`;
 CREATE TABLE `my_di_tag` (
   `id` int(11) NOT NULL,
   `name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_di_tag`
---
 
 INSERT INTO `my_di_tag` VALUES(16, 'dân quân');
 INSERT INTO `my_di_tag` VALUES(17, 'sửa nhà');
@@ -3167,21 +3090,11 @@ INSERT INTO `my_di_tag` VALUES(34, 'loan');
 INSERT INTO `my_di_tag` VALUES(35, 'salary');
 INSERT INTO `my_di_tag` VALUES(36, 'internet');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_di_tag_act`
---
-
 DROP TABLE IF EXISTS `my_di_tag_act`;
 CREATE TABLE `my_di_tag_act` (
   `tag_id` int(11) NOT NULL,
   `activity_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_di_tag_act`
---
 
 INSERT INTO `my_di_tag_act` VALUES(16, 1);
 INSERT INTO `my_di_tag_act` VALUES(16, 5);
@@ -3195,6 +3108,7 @@ INSERT INTO `my_di_tag_act` VALUES(16, 118);
 INSERT INTO `my_di_tag_act` VALUES(16, 233);
 INSERT INTO `my_di_tag_act` VALUES(16, 276);
 INSERT INTO `my_di_tag_act` VALUES(16, 361);
+INSERT INTO `my_di_tag_act` VALUES(16, 459);
 INSERT INTO `my_di_tag_act` VALUES(17, 168);
 INSERT INTO `my_di_tag_act` VALUES(17, 204);
 INSERT INTO `my_di_tag_act` VALUES(17, 243);
@@ -3323,6 +3237,9 @@ INSERT INTO `my_di_tag_act` VALUES(21, 440);
 INSERT INTO `my_di_tag_act` VALUES(21, 446);
 INSERT INTO `my_di_tag_act` VALUES(21, 447);
 INSERT INTO `my_di_tag_act` VALUES(21, 453);
+INSERT INTO `my_di_tag_act` VALUES(21, 455);
+INSERT INTO `my_di_tag_act` VALUES(21, 456);
+INSERT INTO `my_di_tag_act` VALUES(21, 458);
 INSERT INTO `my_di_tag_act` VALUES(22, 241);
 INSERT INTO `my_di_tag_act` VALUES(23, 239);
 INSERT INTO `my_di_tag_act` VALUES(24, 294);
@@ -3343,6 +3260,9 @@ INSERT INTO `my_di_tag_act` VALUES(27, 421);
 INSERT INTO `my_di_tag_act` VALUES(27, 424);
 INSERT INTO `my_di_tag_act` VALUES(27, 432);
 INSERT INTO `my_di_tag_act` VALUES(27, 439);
+INSERT INTO `my_di_tag_act` VALUES(27, 454);
+INSERT INTO `my_di_tag_act` VALUES(27, 460);
+INSERT INTO `my_di_tag_act` VALUES(27, 461);
 INSERT INTO `my_di_tag_act` VALUES(28, 398);
 INSERT INTO `my_di_tag_act` VALUES(28, 408);
 INSERT INTO `my_di_tag_act` VALUES(28, 411);
@@ -3350,6 +3270,8 @@ INSERT INTO `my_di_tag_act` VALUES(28, 423);
 INSERT INTO `my_di_tag_act` VALUES(28, 426);
 INSERT INTO `my_di_tag_act` VALUES(28, 434);
 INSERT INTO `my_di_tag_act` VALUES(28, 445);
+INSERT INTO `my_di_tag_act` VALUES(28, 457);
+INSERT INTO `my_di_tag_act` VALUES(28, 459);
 INSERT INTO `my_di_tag_act` VALUES(30, 400);
 INSERT INTO `my_di_tag_act` VALUES(30, 413);
 INSERT INTO `my_di_tag_act` VALUES(30, 425);
@@ -3364,6 +3286,8 @@ INSERT INTO `my_di_tag_act` VALUES(32, 437);
 INSERT INTO `my_di_tag_act` VALUES(32, 438);
 INSERT INTO `my_di_tag_act` VALUES(32, 449);
 INSERT INTO `my_di_tag_act` VALUES(32, 450);
+INSERT INTO `my_di_tag_act` VALUES(32, 455);
+INSERT INTO `my_di_tag_act` VALUES(32, 458);
 INSERT INTO `my_di_tag_act` VALUES(33, 404);
 INSERT INTO `my_di_tag_act` VALUES(33, 415);
 INSERT INTO `my_di_tag_act` VALUES(33, 436);
@@ -3374,12 +3298,6 @@ INSERT INTO `my_di_tag_act` VALUES(35, 403);
 INSERT INTO `my_di_tag_act` VALUES(35, 441);
 INSERT INTO `my_di_tag_act` VALUES(36, 443);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_lookup`
---
-
 DROP TABLE IF EXISTS `my_lookup`;
 CREATE TABLE `my_lookup` (
   `id` bigint(20) NOT NULL,
@@ -3389,21 +3307,11 @@ CREATE TABLE `my_lookup` (
   `position` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `my_lookup`
---
-
 INSERT INTO `my_lookup` VALUES(1, 'Right', '1', 'banner_type', 1);
 INSERT INTO `my_lookup` VALUES(2, 'Bottom', '2', 'banner_type', 2);
 INSERT INTO `my_lookup` VALUES(3, 'Post Image', '3', 'banner_type', 3);
 INSERT INTO `my_lookup` VALUES(4, 'Active', '1', 'status', 1);
 INSERT INTO `my_lookup` VALUES(5, 'Inactive', '2', 'status', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_post`
---
 
 DROP TABLE IF EXISTS `my_post`;
 CREATE TABLE `my_post` (
@@ -3421,20 +3329,10 @@ CREATE TABLE `my_post` (
   `author_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `my_post`
---
-
 INSERT INTO `my_post` VALUES(10, 'Discover Hong Kong - Official Travel Guide', '', '<p>Hong Kong is a city, and former British colony, in southeastern China. Vibrant and densely populated, itÔÇÖs a major port and global financial center famed for its tower-studded skyline. ItÔÇÖs also known for its lively food scene ÔÇô from Cantonese dim sum to extravagant high tea ÔÇô and its shopping, with options spanning chaotic Temple Street Night Market to the cityÔÇÖs innumerable bespoke tailors.</p>', NULL, NULL, 1, 'discover-hong-kong-official-travel-guide', 7, NULL, '2016-03-09 17:11:21', 1);
 INSERT INTO `my_post` VALUES(11, 'Things to do in Hong Kong', '', '<p>232424</p>', NULL, NULL, 1, 'things-to-do-in-hong-kong', 3, NULL, '2016-03-09 17:11:21', 1);
 INSERT INTO `my_post` VALUES(12, 'Hong Kong - The World Factbook', '', '<p>2121212</p>', NULL, NULL, 1, 'hong-kong-the-world-factbook', NULL, NULL, '2016-03-09 17:11:21', 1);
 INSERT INTO `my_post` VALUES(15, 'About', '', '<section id="about">\r\n<h2>Who am i?</h2>\r\n<div class="row">\r\n	<div class="col-md-4">\r\n		<div class="img-wrapper" style="margin: 10px auto; max-width: 228px;"><img class="img-responsive" src="/media/wyswyg/1/322a45a25f-avatar.jpg" alt="Avatar" height="228" width="228">\r\n		</div>\r\n	</div>\r\n	<div class="col-md-8">\r\n		<p>My name’s Lam Huynh. I’m a fullstack PHP developer, and i have 4 years of experience in website development.\r\n		</p>\r\n		<p>I have been working on a variety of types of projects such as: E-Commerce, CMS, Custom website programming. My majors are Yii, HTML, CSS, Javascript, jQuery, WordPress, Magento.\r\n		</p>\r\n		<p>I could turn your ideas into reality, and bring the most values to your work.\r\n		</p>\r\n	</div>\r\n</div>\r\n</section><section id="my-skill">\r\n<h2>My skills</h2>\r\n<div class="table-responsive">\r\n	<table class="table skill-table">\r\n	<thead>\r\n	<tr>\r\n		<th>\r\n		</th>\r\n		<th>Beginner\r\n		</th>\r\n		<th>Familiar\r\n		</th>\r\n		<th>Proficient\r\n		</th>\r\n		<th>Expert\r\n		</th>\r\n		<th>Master\r\n		</th>\r\n	</tr>\r\n	</thead>\r\n	<tbody>\r\n	<tr>\r\n		<td class="name">Custom Website Programming\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	<tr>\r\n		<td class="name"> Database Design\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	<tr>\r\n		<td class="name"> PSD To HTML\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	<tr>\r\n		<td class="name"> HTML,CSS\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	<tr>\r\n		<td class="name"> Javascript,jQuery,AJAX\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	<tr>\r\n		<td class="name"> WordPress\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	<tr>\r\n		<td class="name"> Magento\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td><i class="fa fa-star level"></i>\r\n		</td>\r\n		<td>\r\n		</td>\r\n		<td>\r\n		</td>\r\n	</tr>\r\n	</tbody>\r\n	</table>\r\n</div>\r\n</section><section id="work">\r\n<h2>Works</h2>\r\n<p><strong>2015 – present</strong>: Freelance Web Developer.\r\n</p>\r\n<ul>\r\n	<li>Custom website development.</li>\r\n	<li>WordPress theme.</li>\r\n	<li>WordPress outsourcing.</li>\r\n	<li>Magento outsourcing.</li>\r\n</ul>\r\n<p><strong>2013 – 2015</strong>: Senior Web Developer, <a href="http://www.verzdesign.com" target="_blank">Verz Design</a>.\r\n</p>\r\n<ul>\r\n	<li>Custom website development.</li>\r\n	<li>Fullstack developer.</li>\r\n	<li>Magento api developer for <a href="http://www.osmose-stores.com" target="_blank">www.osmose-stores.com</a></li>\r\n	<li>Magento outsourcing.</li>\r\n</ul>\r\n<p><strong>2012 – 2013</strong>: Magento Developer, <a href="http://www.codespot.vn" target="_blank">Codespot Co.,Ltd</a>.\r\n</p>\r\n<ul>\r\n	<li>Magento extension developer.</li>\r\n	<li>Magento theme developer.</li>\r\n</ul>\r\n</section><section id="education">\r\n<h2>Education</h2>\r\n<p><strong>2013</strong>: <a href="http://www.magentocommerce.com/certification/directory/dev/1020093" target="_blank">Magento Certified Developer.</a>\r\n</p>\r\n<p><strong>2012</strong>: Bachelor’s Degree in Computer Science/Information Technology.\r\n</p>\r\n</section>', NULL, 2, 1, 'about', NULL, '2016-03-05 09:19:16', '2016-03-25 14:46:52', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_post_banner`
---
 
 DROP TABLE IF EXISTS `my_post_banner`;
 CREATE TABLE `my_post_banner` (
@@ -3442,21 +3340,11 @@ CREATE TABLE `my_post_banner` (
   `banner_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_post_category`
---
-
 DROP TABLE IF EXISTS `my_post_category`;
 CREATE TABLE `my_post_category` (
   `post_id` bigint(20) UNSIGNED NOT NULL,
   `category_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_post_category`
---
 
 INSERT INTO `my_post_category` VALUES(5, 1);
 INSERT INTO `my_post_category` VALUES(5, 2);
@@ -3468,30 +3356,14 @@ INSERT INTO `my_post_category` VALUES(8, 5);
 INSERT INTO `my_post_category` VALUES(9, 1);
 INSERT INTO `my_post_category` VALUES(10, 1);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_post_tag`
---
-
 DROP TABLE IF EXISTS `my_post_tag`;
 CREATE TABLE `my_post_tag` (
   `post_id` bigint(20) UNSIGNED NOT NULL,
   `tag_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `my_post_tag`
---
-
 INSERT INTO `my_post_tag` VALUES(9, 2);
 INSERT INTO `my_post_tag` VALUES(9, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_project`
---
 
 DROP TABLE IF EXISTS `my_project`;
 CREATE TABLE `my_project` (
@@ -3506,10 +3378,6 @@ CREATE TABLE `my_project` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `my_project`
---
-
 INSERT INTO `my_project` VALUES(11, 'Maid It Right', '', '', 'http://www.maiditright.com/', 1, 'maid-it-right', '2016-05-02 08:29:16', '2016-05-02 08:30:31');
 INSERT INTO `my_project` VALUES(12, 'Singapore Media Academy', '', '', 'http://www.mediaacademy.sg', 1, 'singapore-media-academy', '2016-05-02 08:46:29', '2016-05-02 08:46:50');
 INSERT INTO `my_project` VALUES(13, 'StationGo', '', '', 'http://stationgo.sg', 1, 'stationgo', '2016-05-02 08:48:37', '2016-05-02 08:48:37');
@@ -3518,21 +3386,11 @@ INSERT INTO `my_project` VALUES(15, 'Dihub', '', '', 'http://www.dihub.com.sg', 
 INSERT INTO `my_project` VALUES(16, 'StorageToDoor', '', '', 'http://storagetodoor.com', 1, 'storagetodoor', '2016-05-02 08:56:55', '2016-05-02 08:56:55');
 INSERT INTO `my_project` VALUES(17, 'StorageTree', '', '', 'http://www.storagetree.sg', 1, 'storagetree', '2016-05-02 08:58:34', '2016-05-02 08:58:34');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_project_banner`
---
-
 DROP TABLE IF EXISTS `my_project_banner`;
 CREATE TABLE `my_project_banner` (
   `project_id` bigint(20) UNSIGNED NOT NULL,
   `banner_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_project_banner`
---
 
 INSERT INTO `my_project_banner` VALUES(11, 40);
 INSERT INTO `my_project_banner` VALUES(11, 41);
@@ -3551,21 +3409,11 @@ INSERT INTO `my_project_banner` VALUES(16, 53);
 INSERT INTO `my_project_banner` VALUES(17, 54);
 INSERT INTO `my_project_banner` VALUES(17, 55);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_project_tag`
---
-
 DROP TABLE IF EXISTS `my_project_tag`;
 CREATE TABLE `my_project_tag` (
   `project_id` bigint(20) UNSIGNED NOT NULL,
   `tag_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_project_tag`
---
 
 INSERT INTO `my_project_tag` VALUES(11, 5);
 INSERT INTO `my_project_tag` VALUES(11, 6);
@@ -3597,21 +3445,11 @@ INSERT INTO `my_project_tag` VALUES(17, 8);
 INSERT INTO `my_project_tag` VALUES(17, 10);
 INSERT INTO `my_project_tag` VALUES(17, 12);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_subscriber`
---
-
 DROP TABLE IF EXISTS `my_subscriber`;
 CREATE TABLE `my_subscriber` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_subscriber`
---
 
 INSERT INTO `my_subscriber` VALUES(1, 'abc@m.mm');
 INSERT INTO `my_subscriber` VALUES(2, 'a@m.mm');
@@ -3620,22 +3458,12 @@ INSERT INTO `my_subscriber` VALUES(4, 'c@m.mm');
 INSERT INTO `my_subscriber` VALUES(5, 'd@m.mm');
 INSERT INTO `my_subscriber` VALUES(6, 'e@m.mm');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_tag`
---
-
 DROP TABLE IF EXISTS `my_tag`;
 CREATE TABLE `my_tag` (
   `id` bigint(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `my_tag`
---
 
 INSERT INTO `my_tag` VALUES(5, 'Custom programming', 'custom-programming');
 INSERT INTO `my_tag` VALUES(6, 'Database Design', 'database-design');
@@ -3645,12 +3473,6 @@ INSERT INTO `my_tag` VALUES(9, 'CMS', 'cms');
 INSERT INTO `my_tag` VALUES(10, 'Ajax', 'ajax');
 INSERT INTO `my_tag` VALUES(11, 'Product Listing', 'product-listing');
 INSERT INTO `my_tag` VALUES(12, 'jQuery', 'jquery');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `my_user`
---
 
 DROP TABLE IF EXISTS `my_user`;
 CREATE TABLE `my_user` (
@@ -3665,253 +3487,119 @@ CREATE TABLE `my_user` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `my_user`
---
-
 INSERT INTO `my_user` VALUES(1, 'mrsecon', 'mIdNNyoW-s0TlHOA0BCNdBHdrLuyvdHm', '$2y$13$tRdc4SgFDO5aToXyk4UjluynaVxZybd6Non69WMLOrT55/vpHe2I6', NULL, 'daibanglam@gmail.com', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `my_banner`
---
 ALTER TABLE `my_banner`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_bl_post`
---
 ALTER TABLE `my_bl_post`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_bl_post_tag`
---
 ALTER TABLE `my_bl_post_tag`
   ADD PRIMARY KEY (`post_id`,`tag_id`),
   ADD KEY `post_id` (`post_id`),
   ADD KEY `tag_id` (`tag_id`);
 
---
--- Indexes for table `my_bl_tag`
---
 ALTER TABLE `my_bl_tag`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_category`
---
 ALTER TABLE `my_category`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_comment`
---
 ALTER TABLE `my_comment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_id` (`post_id`);
 
---
--- Indexes for table `my_di_activity`
---
 ALTER TABLE `my_di_activity`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_di_tag`
---
 ALTER TABLE `my_di_tag`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_di_tag_act`
---
 ALTER TABLE `my_di_tag_act`
   ADD PRIMARY KEY (`tag_id`,`activity_id`),
   ADD KEY `activity_id` (`activity_id`);
 
---
--- Indexes for table `my_lookup`
---
 ALTER TABLE `my_lookup`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_post`
---
 ALTER TABLE `my_post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `author_id` (`author_id`);
 ALTER TABLE `my_post` ADD FULLTEXT KEY `title` (`title`);
 
---
--- Indexes for table `my_post_banner`
---
 ALTER TABLE `my_post_banner`
   ADD PRIMARY KEY (`post_id`,`banner_id`);
 
---
--- Indexes for table `my_post_category`
---
 ALTER TABLE `my_post_category`
   ADD PRIMARY KEY (`post_id`,`category_id`);
 
---
--- Indexes for table `my_post_tag`
---
 ALTER TABLE `my_post_tag`
   ADD PRIMARY KEY (`post_id`,`tag_id`);
 
---
--- Indexes for table `my_project`
---
 ALTER TABLE `my_project`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `my_project` ADD FULLTEXT KEY `title` (`title`);
 
---
--- Indexes for table `my_project_banner`
---
 ALTER TABLE `my_project_banner`
   ADD PRIMARY KEY (`project_id`,`banner_id`);
 
---
--- Indexes for table `my_project_tag`
---
 ALTER TABLE `my_project_tag`
   ADD PRIMARY KEY (`project_id`,`tag_id`),
   ADD KEY `tag_id` (`tag_id`);
 
---
--- Indexes for table `my_subscriber`
---
 ALTER TABLE `my_subscriber`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_tag`
---
 ALTER TABLE `my_tag`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `my_user`
---
 ALTER TABLE `my_user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `password_reset_token` (`password_reset_token`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `my_banner`
---
 ALTER TABLE `my_banner`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
---
--- AUTO_INCREMENT for table `my_bl_post`
---
 ALTER TABLE `my_bl_post`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=683;
---
--- AUTO_INCREMENT for table `my_bl_tag`
---
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=684;
 ALTER TABLE `my_bl_tag`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
---
--- AUTO_INCREMENT for table `my_category`
---
 ALTER TABLE `my_category`
   MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `my_comment`
---
 ALTER TABLE `my_comment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `my_di_activity`
---
 ALTER TABLE `my_di_activity`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=454;
---
--- AUTO_INCREMENT for table `my_di_tag`
---
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=462;
 ALTER TABLE `my_di_tag`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
---
--- AUTO_INCREMENT for table `my_lookup`
---
 ALTER TABLE `my_lookup`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `my_post`
---
 ALTER TABLE `my_post`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT for table `my_project`
---
 ALTER TABLE `my_project`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `my_subscriber`
---
 ALTER TABLE `my_subscriber`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `my_tag`
---
 ALTER TABLE `my_tag`
   MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `my_user`
---
 ALTER TABLE `my_user`
   MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- Constraints for dumped tables
---
 
---
--- Constraints for table `my_bl_post_tag`
---
 ALTER TABLE `my_bl_post_tag`
   ADD CONSTRAINT `my_bl_post_tag_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `my_bl_post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `my_bl_post_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `my_bl_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Constraints for table `my_di_tag_act`
---
 ALTER TABLE `my_di_tag_act`
   ADD CONSTRAINT `my_di_tag_act_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `my_di_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `my_di_tag_act_ibfk_2` FOREIGN KEY (`activity_id`) REFERENCES `my_di_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Constraints for table `my_project_tag`
---
 ALTER TABLE `my_project_tag`
   ADD CONSTRAINT `my_project_tag_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `my_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `my_project_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `my_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-DROP TABLE IF EXISTS `my_di_plan`;
-CREATE TABLE `my_di_plan` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `year` smallint(4) DEFAULT NULL,
-  `month` tinyint(4) DEFAULT NULL,
-  `tag_id` int(10) DEFAULT NULL,
-  `budget` decimal(18,2) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tag_id` (`tag_id`),
-  CONSTRAINT `my_di_plan_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `my_di_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
