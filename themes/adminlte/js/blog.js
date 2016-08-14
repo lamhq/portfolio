@@ -4,9 +4,22 @@
 var module ={
 	
 	setupBlogPage: function (val) {
-		app.setupAjaxForm('form');
+		// search
+		$('form').on('beforeSubmit', function(e) {
+			e.preventDefault();
+			var form = $(this);
+			app.loadPage(form.attr('action'), form.serializeArray());
+			return false;
+		});
+		$('.btnReset').click(function() {
+			$('#postsearch-key, #postsearch-minrating').val('');
+			$("#postsearch-searchtags").select2("val", "");
+			$('.search-form form').submit();
+		});
+		
+		// pagination
 		app.setupAjaxLink('.pagination a');
-		$('.post-content img').addClass('img-responsive');
+		
 		// setup bootstrap affix
 		$('#post-nav').affix({
 			offset: { top: 525 }
@@ -15,12 +28,7 @@ var module ={
 		// setup bootstrap scrollby
 		$('body').css('position', 'relative');
 		$('body').scrollspy({ target: '#post-nav' });
-		
-		$('.btnReset').click(function() {
-			$('#postsearch-key, #postsearch-minrating').val('');
-			$("#postsearch-searchtags").select2("val", "");
-			$('.search-form form').submit();
-		});
+		$('.post-content img').addClass('img-responsive');
 	}
 	
 };
