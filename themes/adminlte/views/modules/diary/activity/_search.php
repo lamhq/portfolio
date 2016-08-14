@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use diary\models\search\ActivitySearch;
 use kartik\datetime\DateTimePicker;
+use diary\models\Tag;
 
 $this->registerJs(
 "$('#btnReset').click(function() {
@@ -25,7 +26,7 @@ $this->registerJs(
 		<div class="col-sm-6">
 			<?= $form->field($model, 'searchTags')->label(false)->widget(
 				Select2::className(), [
-				'data' => $model->getTagListData(),
+				'data' => Tag::getTagListData(),
 				'options' => [
 					'placeholder'=>'Tags',
 				],

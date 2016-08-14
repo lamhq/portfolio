@@ -40,4 +40,18 @@ class Tag extends \yii\db\ActiveRecord
             'name' => 'Name',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getActivities()
+    {
+        return $this->hasMany(Activity::className(), ['id' => 'activity_id'])
+            ->viaTable('{{%di_tag_act}}', ['tag_id' => 'id']);
+    }
+
+    public static function getTagListData() {
+        return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'name');
+    }
+    
 }

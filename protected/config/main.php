@@ -37,6 +37,11 @@ $config = [
 				
 				// frequently access link
 				'd' => '/diary/activity',
+				
+				'p' => '/diary/plan/index',
+				'p/s' => '/diary/plan/save',
+				'p/f' => '/diary/plan/form',
+
 				'b' => '/blog/post',
 				'b/a' => '/blog/post/create',
 			]

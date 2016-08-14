@@ -1,71 +1,59 @@
 /*
- * javascript for common funtion in backend
+ * javascript for common functions in backend
  */
 var module ={
 	/*
-	 * get page by ajax (do not submit any data to server)
-	 */
-	loadPage: function(url) {
-		app.showLoading();
-		$.ajax({
-			url: url ? url : window.location.href,
-			type: 'GET',
-			data: '',
-			success: app.onSuccess,
-			error: app.onError
-		});
-	},
-
-	/*
-	 * submit form data to url and update page content
-	 */
-	submitForm: function(form) {
-		var action =  $(form).attr('action');
-		var data =  $(form).serialize();
-		app.showLoading();
-		$.ajax({
-			type: 'POST',
-			url: action,
-			data: data,
-			success: app.onSuccess,
-			error: app.onError
-		});
-	},
-
-	/*
-	 * ajax success, upload page content
-	 */
-	onSuccess: function(data) {
-		var page = $('<div>'+data+'</div>');
-		$('.ajax-content').html(page.find('.ajax-content').html());
-		$('body').append(page.find('script'));
-		window.scrollTo(0,0);
-	},
-
-	/*
-	 * ajax success, upload page content
-	 */
-	onError: function(XHR, textStatus, errorThrown) {
-		console.log(textStatus);
-	},
-
-	/*
-	 * show loading animation
+	 * show loading animation when executing ajax load
 	 */
 	showLoading: function() {
-		$('.ajax-content').prepend('<i class="fa fa-refresh fa-spin fa-2x fa-loading"></i>');
+		$('.content-wrapper').addClass('loading');
 	},
 
-	setupAjaxForm: function(form) {
-		var onBeforeSubmit = function(e) {
-			e.preventDefault();
-			$('.modal').modal('hide');
-			app.submitForm(this);
-			return false;
-		};
+	hideLoading: function() {
+		$('.content-wrapper').removeClass('loading');
+	},
 
-		// capture yii activeform event
-		$(form).on('beforeSubmit', onBeforeSubmit);
+	/*
+	 * show popup for multiple purposes
+	 */
+	showModal: function(options) {
+		var setting = $.extend({
+			header: '',
+			content : '',
+			onOk: function () {},
+			onCancel: function () {}
+		}, typeof options !== 'undefined' ?  options : {});
+
+		var modal = $('#app-modal');
+		modal.find('.modal-title').html(setting.header);
+		modal.find('.modal-body').html(setting.content);
+		modal.find('.btn-cancel').unbind('click').on('click', setting.onCancel);
+		modal.modal('show');
+		modal.find('.btn-ok').unbind('click').on('click', setting.onOk).focus();
+	},
+
+	showError: function(options) {
+		var setting = $.extend({
+			header: '<i class="icon fa fa-warning"></i> Opps! Something went wrong.',
+			content : 'Please try again later.',
+		}, typeof options !== 'undefined' ?  options : {});
+		app.showModal(setting);
+	},
+
+	/*
+	 * load page by ajax
+	 */
+	loadPage: function(url, data) {
+		var url = typeof url !== 'undefined' ? url : window.location.href;
+		var data = typeof data !== 'undefined' ? data : '';
+		app.showLoading();
+		$('.main-content').load(url, data,
+			function(response, status, xhr) {
+				app.hideLoading();
+				if ( status == "error" ) {
+					app.showError({ content: xhr.status + " " + xhr.statusText });
+ 				}
+		});
 	},
 
 	setupAjaxLink: function(link) {

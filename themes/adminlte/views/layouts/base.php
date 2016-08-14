@@ -14,7 +14,7 @@ use yii\widgets\Breadcrumbs;
 <head>
 	<?= $this->render('_head') ?>
 </head>
-<body class="skin-blue sidebar-collapse sidebar-mini <?= ArrayHelper::getValue($this->params, 'body-class') ?>">
+<body class="skin-blue sidebar-mini <?= ArrayHelper::getValue($this->params, 'body-class') ?>">
 <?php $this->beginBody() ?>
 <div class="wrapper">
 	<?= $this->render('_header') ?>
@@ -50,11 +50,30 @@ use yii\widgets\Breadcrumbs;
 					'options'=>ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'options'),
 				])?>
 			<?php endif; ?>
-			<?= $content ?>
+			<div class="main-content">
+				<?= $content ?>
+			</div>
 		</section><!-- /.content -->
 	</aside><!-- /.right-side -->
-	
 </div>
+
+<div class="modal" id="app-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title"></h4>
+			</div>
+			
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default pull-left btn-cancel" type="button">Cancel</button>
+                <button  data-dismiss="modal" class="btn btn-primary btn-ok" type="button">Ok</button>
+            </div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <?= $this->blocks['before_body_end'] ?>
 <?php $this->endBody() ?>
 </body>

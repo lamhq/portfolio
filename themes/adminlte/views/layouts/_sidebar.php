@@ -22,6 +22,7 @@
 					'options'=>['class'=>'treeview'],
 					'items'=>[
 						['label'=>Yii::t('app', 'Timeline'), 'url'=>['/diary/activity'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
+						['label'=>Yii::t('app', 'Outcome Plan'), 'url'=>['/diary/plan/index'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 					],
 				],
 				[

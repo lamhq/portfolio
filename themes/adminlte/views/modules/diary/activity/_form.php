@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use kartik\datetime\DateTimePicker;
 use kartik\select2\Select2;
 use app\widgets\FlexText;
+use diary\models\Tag;
 ?>
 <?php $form = ActiveForm::begin([
 	'enableClientValidation' => true,
@@ -36,7 +37,7 @@ use app\widgets\FlexText;
 	) ?>
 
 	<?php
-	$tagNames = array_values($model->getTagListData());
+	$tagNames = array_values(Tag::getTagListData());
 	?>
     <?= $form->field($model, 'tagValues')->label(false)->widget(
 		Select2::className(), [

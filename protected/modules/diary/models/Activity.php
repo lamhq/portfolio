@@ -175,15 +175,6 @@ class Activity extends \yii\db\ActiveRecord
 		Tag::deleteAll('id not in (select tag_id from {{%di_tag_act}})');
 	}
 	
-	protected static $_tagListData = null;
-	
-	public static function getTagListData() {
-		if (self::$_tagListData===null) {
-			self::$_tagListData = \yii\helpers\ArrayHelper::map(Tag::find()->all(), 'id', 'name');
-		}
-		return self::$_tagListData;
-	}
-	
 	public function getJsonData() {
 		$data = $this->isNewRecord ? [
 			'id' => 0,
