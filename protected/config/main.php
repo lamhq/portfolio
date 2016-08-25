@@ -1,15 +1,14 @@
 <?php
 Yii::setAlias('@backend', realpath(__DIR__.'/../modules/backend'));
-Yii::setAlias('@api', realpath(__DIR__.'/../modules/api'));
-Yii::setAlias('@portfolio', realpath(__DIR__.'/../modules/portfolio'));
 Yii::setAlias('@diary', realpath(__DIR__.'/../modules/diary'));
-Yii::setAlias('@blog', realpath(__DIR__.'/../modules/blog'));
+Yii::setAlias('@note', realpath(__DIR__.'/../modules/note'));
+Yii::setAlias('@portfolio', realpath(__DIR__.'/../modules/portfolio'));
 
 $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
 	'basePath' => dirname(__DIR__),
 	'id' => 'portfolio',
-	'name' => 'Lam Huynh\'s Portfolio',
+	'name' => 'Lam Huynh',
 	'timeZone' => 'Asia/Bangkok',
 	'language' => 'en-US',
 	'sourceLanguage' => 'en-US',
@@ -42,8 +41,8 @@ $config = [
 				'p/s' => '/diary/plan/save',
 				'p/f' => '/diary/plan/form',
 
-				'b' => '/blog/post',
-				'b/a' => '/blog/post/create',
+				'n' => '/note/post',
+				'n/a' => '/note/post/create',
 			]
 		],
 		'user' => [
@@ -93,10 +92,9 @@ $config = [
 	],
 	'modules' => [
 		'backend' => [ 'class' => 'backend\Module' ],
-		'api' => [ 'class' => 'api\Module' ],
-		'portfolio'=>['class' => 'portfolio\Module' ],
 		'diary' => ['class' => 'diary\Module' ],
-		'blog' => ['class' => 'blog\Module' ],
+		'note' => ['class' => 'note\Module' ],
+		'portfolio'=>['class' => 'portfolio\Module' ],
 		'redactor' => [
 			'class' => 'yii\redactor\RedactorModule',
 			'uploadDir' => '@webroot/media/wyswyg',

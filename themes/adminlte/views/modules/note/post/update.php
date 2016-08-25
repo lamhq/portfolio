@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $model blog\models\Post */
+/* @var $model note\models\Post */
 
 $this->title = 'Update Post: ' . ' ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

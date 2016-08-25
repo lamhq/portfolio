@@ -6,7 +6,7 @@ use kartik\select2\Select2;
 use kartik\rating\StarRating;
 
 /* @var $this yii\web\View */
-/* @var $model blog\models\Post */
+/* @var $model note\models\Post */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

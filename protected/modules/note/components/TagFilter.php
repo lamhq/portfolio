@@ -1,7 +1,7 @@
 <?php
 
-namespace blog\components;
-use blog\models\PostTag;
+namespace note\components;
+use note\models\PostTag;
 
 /**
  * @author Lam

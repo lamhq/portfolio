@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model blog\models\search\PostSearch */
+/* @var $model note\models\search\PostSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -19,7 +19,7 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'searchTags')->widget(
 		Select2::className(), [
-		'data' => blog\models\Tag::getListData(),
+		'data' => note\models\Tag::getListData(),
 		'options' => [
 			'placeholder'=>'Tags',
 		],

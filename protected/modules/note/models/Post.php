@@ -1,11 +1,11 @@
 <?php
 
-namespace blog\models;
+namespace note\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
-use blog\models\Tag;
-use blog\models\PostTag;
+use note\models\Tag;
+use note\models\PostTag;
 
 /**
  * This is the model class for table "{{%bl_post}}".

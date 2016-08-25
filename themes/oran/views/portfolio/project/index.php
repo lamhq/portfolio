@@ -1,8 +1,9 @@
 <?php
 /* @var $dataProvider \yii\data\ActiveDataProvider */
 use yii\widgets\ListView;
+$this->title = 'What i do';
 ?>
-<h1 class="page-title">Projects</h1>
+<h1 class="page-title heading">My Projects</h1>
 
 <?= portfolio\widgets\TagNavigation::widget() ?>
 

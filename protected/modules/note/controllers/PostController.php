@@ -1,10 +1,10 @@
 <?php
 
-namespace blog\controllers;
+namespace note\controllers;
 
 use Yii;
-use blog\models\Post;
-use blog\models\search\PostSearch;
+use note\models\Post;
+use note\models\search\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

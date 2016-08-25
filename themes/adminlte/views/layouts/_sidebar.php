@@ -15,25 +15,18 @@
 			'submenuTemplate'=>"\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
 			'activateParents'=>true,
 			'items'=>[
-				['label'=>Yii::t('app', 'Project'), 'url'=>['/backend/project'], 'icon'=>'<i class="fa fa-briefcase"></i>'],
+				// diary
 				[
 					'label'=>Yii::t('app', 'Diary'),
 					'icon'=>'<i class="fa fa-bar-chart-o"></i>',
 					'options'=>['class'=>'treeview'],
 					'items'=>[
 						['label'=>Yii::t('app', 'Timeline'), 'url'=>['/diary/activity'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
-						['label'=>Yii::t('app', 'Outcome Plan'), 'url'=>['/diary/plan/index'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
+						['label'=>Yii::t('app', 'Outcome'), 'url'=>['/diary/plan'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 					],
 				],
-				[
-					'label'=>Yii::t('app', 'Blog'),
-					'icon'=>'<i class="fa fa-edit"></i>',
-					'options'=>['class'=>'treeview'],
-					'items'=>[
-						['label'=>Yii::t('app', 'Post Listing'), 'url'=>['/blog/post'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
-						['label'=>Yii::t('app', 'Add Post'), 'url'=>['/blog/post/create'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
-					],
-				],
+				['label'=>Yii::t('app', 'Note'), 'url'=>['/note/post'], 'icon'=>'<i class="fa fa-edit"></i>', ],
+				['label'=>Yii::t('app', 'Project'), 'url'=>['/backend/project'], 'icon'=>'<i class="fa fa-briefcase"></i>'],
 				['label'=>Yii::t('app', 'Banner'), 'url'=>['/backend/banner'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 				['label'=>Yii::t('app', 'Post'), 'url'=>['/backend/post'], 'icon'=>'<i class="fa fa-circle-o"></i>'],
 				['label'=>Yii::t('app', 'Page'), 'url'=>['/backend/page'], 'icon'=>'<i class="fa fa-circle-o"></i>'],

@@ -8,7 +8,7 @@ use app\models\Post;
 
 class PostController extends Controller {
 
-	public function actionView($id) {
+	public function actionView($id=5) {
 		$model = Post::find()->where([
 			'id' => $id,
 			'status' => Post::STATUS_ACTIVE

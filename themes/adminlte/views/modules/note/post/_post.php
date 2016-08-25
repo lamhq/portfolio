@@ -1,5 +1,5 @@
 <?php
-/* @var $model blog\models\Post */
+/* @var $model note\models\Post */
 use yii\helpers\Url;
 \yii\web\YiiAsset::register($this);
 ?>

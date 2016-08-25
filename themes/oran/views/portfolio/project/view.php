@@ -15,7 +15,7 @@ $this->registerJs("
 	<div class="row">
 		<div class="col-md-6 col-md-push-6">
 			<header>
-				<h1><?= $model->title ?></h1>
+				<h1 class="heading"><?= $model->title ?></h1>
 				<?= portfolio\widgets\TagNavigation::widget(['project'=>$model->id]) ?>
 			</header>
 			<div class="desc"><?= $model->content ?></div>

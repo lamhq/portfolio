@@ -6,10 +6,10 @@ use app\models\Post;
 use yii\helpers\Url;
 ?>
 <header id="page-header">
-	<p id="logo"><a href="<?= Yii::$app->homeUrl ?>">
-		<img src="<?= $this->theme->baseUrl ?>/img/logo.jpg" alt="<?= Yii::$app->name ?>">
-	</a></p>
-	<p class="tagline">Web Developer</p>
+	<p id="logo" class="text-center">
+		<a href="<?= Yii::$app->homeUrl ?>"><img src="<?= $this->theme->baseUrl ?>/img/logo.jpg" alt="<?= Yii::$app->name ?>"></a>
+	</p>
+	<p class="tagline text-center">Lam Huynh</p>
 
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -24,11 +24,14 @@ use yii\helpers\Url;
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="clearfix" id="main-nav">
-			<li><a href="<?= Url::to(['/portfolio/project']) ?>">Projects</a></li>
-			<li><a href="<?= Post::getUrlBySlug('about') ?>">About</a></li>
-			<li><a href="<?= Url::to(['/site/contact']) ?>">Contact</a></li>
-		</ul>
+		<nav>
+			<ul class="clearfix" id="main-nav">
+				<li><a href="<?= Url::to(['/blog']) ?>">Blog</a></li>
+				<li><a href="<?= Url::to(['/portfolio/project']) ?>">What i do</a></li>
+				<li><a href="<?= Post::getUrlBySlug('about') ?>">About me</a></li>
+				<li><a href="<?= Url::to(['/site/contact']) ?>">Contact</a></li>
+			</ul>
+		</nav>
 
 		<div class="social-links">
 			<ul class="list-inline">

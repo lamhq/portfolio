@@ -1,6 +1,6 @@
 <?php
 
-namespace blog;
+namespace note;
 use Yii;
 use yii\base\Controller;
 
@@ -10,7 +10,7 @@ class Module extends \yii\base\Module {
 		parent::init();
 		// set theme adminlte for diary module
 		$theme = Yii::$app->view->theme;
-		$theme->pathMap['@app/modules/blog/views'] = '@webroot/themes/adminlte/views/modules/blog';
+		$theme->pathMap['@app/modules/note/views'] = '@webroot/themes/adminlte/views/modules/note';
 		
 		// set access rules
 		$this->on(Controller::EVENT_BEFORE_ACTION, function($event) {

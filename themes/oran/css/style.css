@@ -16,10 +16,10 @@ This theme, for my personal use
 /**
  * Table of Contents
  *
- * 1.0 - Elements
+ * 1.0 - Global
  * 2.0 - Font
  * 3.0 - Header
- * 4.0 - Navigation
+ * 4.0 - Left Navigation
  * 5.0 - Page content
  * 6.0 - Portfolio
  * 7.0 - Tag
@@ -30,11 +30,13 @@ This theme, for my personal use
  * 12.0 - Contact
  * 13.0 - Media Queries
  * 14.0 - Pagination
+ * 15.0 - Blog
+ * 16.0 - Components
  */
 
 
 /**
- * 1.0 - Elements
+ * 1.0 - Global
  */
 
 a {
@@ -49,31 +51,12 @@ a:hover {
 body {
   background-color: #f2f2f2;
   font-family: "Trebuchet MS",Helvetica,sans-serif;
-  font-size: 15px;
-}
-
-h1, h2, h3 {
-  color: #d9593d;
-  font-family: "League Gothic",helvetica,arial,sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 18px;
 }
 
 ol, ul {
   margin-bottom: 15px;
 }
-
-.screen-reader-text {
-  border: 0 none;
-  clip: rect(0px, 0px, 0px, 0px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
 
 /**
   * 2.0 - Font
@@ -109,6 +92,13 @@ ol, ul {
 box-shadow: 1px 0 0 1px #bababa;
 }
 
+#logo img {
+  background-color: #d0d0d0;
+  border-radius: 100%;
+  max-width: 80%;
+  padding: 7px;
+}
+
 #page-header a {
   color: #67585e;
 }
@@ -127,7 +117,7 @@ box-shadow: 1px 0 0 1px #bababa;
 }
 
 /**
-  * 4.0 - Navigations
+  * 4.0 - Left Navigation
   */
 
 #page-header ul {
@@ -251,25 +241,6 @@ transition: all 0.2s ease-in;
   margin-top: 0;
 }
 
-.btn-port {
-  background-color: #d9593d;
-  color: #fff;
-  font-family: "League Gothic";
-  font-size: 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
--webkit-transition: all 0.2s ease-in;
--moz-transition: all 0.2s ease-in;
--ms-transition: all 0.2s ease-in;
--o-transition: all 0.2s ease-in;
-transition: all 0.2s ease-in;
-}
-
-.btn-port:hover {
-  background-color: #67585e;
-  color: #fff;
-}
-
 
 /**
   * 7.0 - Tag
@@ -286,7 +257,7 @@ transition: all 0.2s ease-in;
   margin-right: 5px;
 }
 
-li.tag {
+.tag {
   background-color: #67585e;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -294,6 +265,7 @@ li.tag {
   font-size: 12px;
   padding: 2px 7px;
   margin: 0 10px 10px 0;
+  color: #f0f3cd;
 -webkit-transition: all 0.2s ease-in;
 -moz-transition: all 0.2s ease-in;
 -ms-transition: all 0.2s ease-in;
@@ -303,10 +275,7 @@ transition: all 0.2s ease-in;
 
 .tag:hover {
   background-color: #d9593d;
-}
-
-.tag a {
-  color: #f0f3cd;
+  color: #fff;
 }
 
 .tag.active {
@@ -319,6 +288,9 @@ transition: all 0.2s ease-in;
   padding: 2px 7px;
 }
 
+.sidebar .tag {
+  margin: 0 5px 5px 0;
+}
 
 /**
   * 8.0 - Carousel
@@ -483,3 +455,77 @@ text-align: center;
 transition: all 0.2s ease-in 0s;
 width: 30px;
 }
+
+/**
+ * 15.0 - Blog
+ */
+
+.post { margin-bottom: 50px }
+.post-title { margin-top: 0; }
+.post-footer { margin-top: 20px }
+.post-meta { font-size: 15px; font-style: italic; }
+
+/**
+ * 16.0 - Components
+ */
+
+.link-list {
+  list-style: outside none none;
+  padding-left: 0;
+  font-size: 15px;
+}
+.link-list li {
+  border-bottom: 1px solid #e5e7e9;
+  margin-bottom: 7px;
+  padding-bottom: 7px;
+}
+.link-list a { color: #909090; }
+.link-list a:hover { color: #333; }
+
+.screen-reader-text {
+  border: 0 none;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.lined {
+  border-bottom: 2px solid #d9593d;
+  padding-bottom: 5px;
+}
+
+.heading {
+  color: #d9593d;
+  font-family: "League Gothic",helvetica,arial,sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sidebar .heading {
+  margin-bottom: 10px;
+}
+
+.btn-port {
+  background-color: #d9593d;
+  color: #fff;
+  font-family: "League Gothic";
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in;
+}
+
+.btn-port:hover {
+  background-color: #67585e;
+  color: #fff;
+}
+
+.search-form .btn { font-size: 14px }

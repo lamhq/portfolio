@@ -1,6 +1,6 @@
 <?php
 
-namespace blog\components;
+namespace note\components;
 
 /**
  * @author Lam

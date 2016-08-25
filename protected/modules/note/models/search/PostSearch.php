@@ -1,17 +1,17 @@
 <?php
 
-namespace blog\models\search;
+namespace note\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\Pagination;
 use yii\helpers\ArrayHelper;
-use blog\models\Post;
-use blog\models\PostTag;
-use blog\models\Tag;
+use note\models\Post;
+use note\models\PostTag;
+use note\models\Tag;
 
 /**
- * PostSearch represents the model behind the search form about `blog\models\Post`.
+ * PostSearch represents the model behind the search form about `note\models\Post`.
  */
 class PostSearch extends Post
 {
@@ -88,9 +88,9 @@ class PostSearch extends Post
 		
 		if ($this->load($params) && $this->validate()) {
 			$filters = [
-				new \blog\components\ContentFilter(),
-				new \blog\components\RatingFilter(),
-				new \blog\components\TagFilter(),
+				new \note\components\ContentFilter(),
+				new \note\components\RatingFilter(),
+				new \note\components\TagFilter(),
 			];
 		
 			foreach($filters as $filter) {

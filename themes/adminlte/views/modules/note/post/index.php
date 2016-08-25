@@ -1,11 +1,12 @@
 <?php
 
 use yii\widgets\LinkPager;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $searchModel blog\models\search\PostSearch */
+/* @var $searchModel note\models\search\PostSearch */
 
-$this->title = 'Post Listing';
+$this->title = 'Notes';
 $this->params['breadcrumbs'][] = $this->title;
 $this->registerJs("app.setupBlogPage();");
 ?>
@@ -24,11 +25,13 @@ $this->registerJs("app.setupBlogPage();");
 	
 	<div class="col-md-9 col-md-pull-3">
 	<?php if ($searchModel->models): ?>
-		<?= LinkPager::widget([
-			'pagination' => $searchModel->pagination,
-			'options' => ['class' => 'pagination'],
-		]); ?>
-
+		<div class="clearfix">
+			<?= LinkPager::widget([
+				'pagination' => $searchModel->pagination,
+				'options' => ['class' => 'pagination pull-left'],
+			]); ?>
+			<a href="<?= Url::to(['create']) ?>" class="btn btn-success pull-right">Add</a>
+		</div>
 		<div class="post-list">
 			<?php foreach($searchModel->models as $model): ?>
 			<?= $this->render('_post', ['model'=>$model]) ?>
