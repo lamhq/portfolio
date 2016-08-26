@@ -4,13 +4,12 @@
 /* @var $project int */
 use yii\helpers\Url;
 ?>
-<ul class="tags list-inline">
+<p class="tags">
 	<?php if (!$project): ?>
-	<li class="tag <?= !$activeTag ? 'active' : null ?>"><a href="<?= Url::to(['/portfolio/project']) ?>">All</a></li>
+	<a href="<?= Url::to(['/portfolio/project']) ?>" class="tag <?= !$activeTag ? 'active' : null ?>" >All</a>
 	<?php endif ?>
 	<?php foreach ($tags as $tag): ?>
-	<li class="tag <?= $tag->slug==$activeTag ? 'active' : null ?>">
-		<a href="<?= Url::to(['/portfolio/project', 'tag'=>$tag->slug]) ?>"><?= $tag->name ?></a>
-	</li>
+	<a href="<?= Url::to(['/portfolio/project', 'tag'=>$tag->slug]) ?>" 
+		class="tag <?= $tag->slug==$activeTag ? 'active' : null ?>"><?= $tag->name ?></a>
 	<?php endforeach ?>
-</ul>
+</p>
