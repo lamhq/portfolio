@@ -4,7 +4,7 @@ namespace portfolio\models;
 
 use Yii;
 use app\models\Banner;
-use app\models\Tag;
+use portfolio\models\Tag;
 use yii\helpers\Url;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\SluggableBehavior;
@@ -39,7 +39,7 @@ class Project extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%project}}';
+        return '{{%pf_project}}';
     }
 
     /**
@@ -104,16 +104,24 @@ class Project extends \yii\db\ActiveRecord
      */
     public function getTags()
     {
-        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])->viaTable('{{%project_tag}}', ['project_id' => 'id']);
+        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])->via('projectTags');
     }
 	
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjectBanners()
+    {
+        return $this->hasMany(ProjectBanner::className(), ['project_id' => 'id']);
+    }
+
 	/**
 	 * @return \yii\db\ActiveQuery
 	 */
 	public function getImages()
     {
         return $this->hasMany(Banner::className(), ['id' => 'banner_id'])
-			->viaTable('{{%project_banner}}', ['project_id' => 'id'])->orderBy('display_order');
+			->via('projectBanners')->orderBy('display_order');
     }	
 	
 	/**
@@ -122,7 +130,7 @@ class Project extends \yii\db\ActiveRecord
 	public function getFeaturedImage($width=null, $height=null, $watermark=false)
     {
         $model = $this->hasOne(Banner::className(), ['id' => 'banner_id'])
-            ->viaTable('{{%project_banner}}', ['project_id' => 'id'])->one();
+            ->via('projectBanners')->orderBy('display_order')->one();
 		return $model ? $model->getImageUrl($width, $height, $watermark) : NULL;
     }	
 	

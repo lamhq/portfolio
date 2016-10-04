@@ -55,7 +55,7 @@ class Category extends \yii\db\ActiveRecord
     }
 	
 	public function getUrl() {
-		return Url::to(['/category/view', 'id'=>$this->id, 'slug' => $this->slug]);
+		return Url::to(['/blog/category', 'id'=>$this->id, 'slug' => $this->slug]);
 	}
 	
 	static public function getUrlBySlug($slug) {

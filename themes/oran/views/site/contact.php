@@ -10,13 +10,12 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1 class="page-title">Contact</h1>
+<h1 class="page-title heading">Contact</h1>
+<p class="text-right"><em>If you need my help or just saying hello is welcome :)</em></p>
 
 <div class="row">
 	<div class="col-md-6">
 		<section class="contact-form">
-			<h2>Let work together</h2>
-
 			<?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
 				<?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
@@ -48,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<i class="fa fa-skype"></i>hqlam90
 		</p>
 		<p>
-			<i class="fa fa-envelope"></i>hqlam.hcmus@gmail.com
+			<i class="fa fa-envelope"></i><a href="mailto:hqlam.bt@gmail.com">hqlam.bt@gmail.com</a>
 		</p>
 		<p>
 			<i class="fa fa-phone"></i>+84 165 613 2637

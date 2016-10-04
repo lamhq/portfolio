@@ -17,7 +17,7 @@ class ProjectBanner extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%project_banner}}';
+        return '{{%pf_project_banner}}';
     }
 
     /**

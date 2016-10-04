@@ -30,7 +30,7 @@ use kartik\select2\Select2;
 	]) ?>
 	
 	<?php
-	$tagNames = array_values(\app\models\Tag::getListData());
+	$tagNames = array_values(portfolio\models\Tag::getListData());
 	?>
 	<?= $form->field($model, 'tagValues')->widget(
 		Select2::className(), [

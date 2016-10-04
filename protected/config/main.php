@@ -8,7 +8,7 @@ $config = [
 	'vendorPath' => realpath(__DIR__ . '/../../vendor'),
 	'basePath' => dirname(__DIR__),
 	'id' => 'portfolio',
-	'name' => 'Lam Huynh',
+	'name' => 'Lam Huynh - PHP Web Developer',
 	'timeZone' => 'Asia/Bangkok',
 	'language' => 'en-US',
 	'sourceLanguage' => 'en-US',
@@ -30,17 +30,21 @@ $config = [
 			'showScriptName' => false,
 			'rules'=>[
 				// portfolio module
-				'<id:\d+>/<slug:.*>.html' => '/portfolio/project/view',
-				'tag/<tag:.*>.html' => '/portfolio/project',
+				'portfolio/project/<id:\d+>/<slug:.*>.html' => '/portfolio/project/view',
+				'portfolio/tag/<tag:.*>.html' => '/portfolio/project',
 				'' => '/portfolio/project',
+				
+				// blog module
+				'page/<id:\d+>/<slug:.*>.html' => '/page/view',
+				'blog/post/<id:\d+>/<slug:.*>.html' => 'blog/post',
+				'blog/category/<id:\d+>/<slug:.*>.html' => 'blog/category',
+				'blog/tag/<slug:.*>.html' => 'blog/tag',
 				
 				// frequently access link
 				'd' => '/diary/activity',
-				
 				'p' => '/diary/plan/index',
 				'p/s' => '/diary/plan/save',
 				'p/f' => '/diary/plan/form',
-
 				'n' => '/note/post',
 				'n/a' => '/note/post/create',
 			]

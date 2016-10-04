@@ -101,7 +101,10 @@ class SiteController extends Controller {
 	}
 
 	public function actionTest() {
-		return $this->renderPartial('test');
+		// var_dump($hash = Yii::$app->getSecurity()->generatePasswordHash(''));die;
+		echo function_exists('exif_imagetype') ? '1' : '0';
+		die;
+		// return $this->renderPartial('test');
 	}
 
 	public function actionContact() {

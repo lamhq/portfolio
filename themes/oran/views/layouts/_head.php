@@ -16,7 +16,7 @@ $this->registerJs("app.setupMenu();", View::POS_END);
 	<link rel="icon" href="<?= $this->theme->baseUrl ?>/favicon.ico" type="image/x-icon" />
 
 	<?= Html::csrfMetaTags() ?>
-	<title><?= Html::encode($this->title) ?> - <?= Html::encode(Yii::$app->name) ?></title>
+	<title><?= Html::encode($this->title) ?> | <?= Html::encode(Yii::$app->name) ?></title>
 	<?php $this->head() ?>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

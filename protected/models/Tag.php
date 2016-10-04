@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Url;
 use yii\behaviors\SluggableBehavior;
 
 /**
@@ -43,7 +44,7 @@ class Tag extends \yii\db\ActiveRecord
     }
 	
 	static public function getListData() {
-		return \yii\helpers\ArrayHelper::map(Tag::find()->all(), 'id', 'name');
+		return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'name');
 	}
 	
 	public function behaviors() {
@@ -58,4 +59,16 @@ class Tag extends \yii\db\ActiveRecord
 		];
 	}
 	
+    public function getUrl() {
+        return Url::to(['/blog/tag', 'slug' => $this->slug]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPosts()
+    {
+        return $this->hasMany(Post::className(), ['id' => 'post_id'])
+            ->viaTable('{{%post_tag}}', ['tag_id' => 'id']);        
+    }    
 }

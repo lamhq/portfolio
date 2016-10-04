@@ -10,6 +10,8 @@ $this->registerJs("
         maxWidth: '90%'
     });
 ", yii\web\View::POS_END);
+$this->registerJs("app.setActiveMenu('what-i-do');", \yii\web\View::POS_READY);
+$this->title = $model->title;
 ?>
 <article class="portfolio-single">
 	<div class="row">

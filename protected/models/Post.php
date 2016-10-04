@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\components\Helper;
+use app\components\PostQuery;
 use yii\helpers\Url;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\SluggableBehavior;
@@ -122,10 +123,8 @@ class Post extends \yii\db\ActiveRecord {
 	}
 
 	public function getUrl() {
-		$route = $this->type == self::TYPE_PAGE ? '/page/view' : '/post/view';
+		$route = $this->type == self::TYPE_PAGE ? '/page/view' : '/blog/post';
 		$params = [$route, 'id'=>$this->id];
-		if ($this->category)
-			$params['cat'] = $this->category->slug;
 		$params['slug'] = $this->slug;
 		return Url::to($params, true);
 	}
@@ -428,5 +427,9 @@ class Post extends \yii\db\ActiveRecord {
 		return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
             ->viaTable('{{%post_tag}}', ['post_id' => 'id']);
     }
-	
+
+    public static function find()
+    {
+        return new PostQuery(get_called_class());
+    }
 }

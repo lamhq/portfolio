@@ -1,11 +1,12 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $post app\models\Post */
-$this->title = $post->title;
+/* @var $model app\models\Post */
+$this->title = $model->title;
 ?>
+<h1 class="page-title heading"><?= $model->title ?></h1>
 
-<article id="post-<?= $post->id ?>" class="page type-page status-publish hentry">
-		<?= $post->content ?>
+<article id="post-<?= $model->id ?>" class="page type-page">
+	<?= $model->content ?>
 </article><!-- #post-## -->
 
 

@@ -17,7 +17,7 @@ class PageController extends Controller {
 			throw new \yii\web\HttpException(404, 'The requested page does not exist');
 		}
 		return $this->render('view', [
-			'post' => $model
+			'model' => $model
 		]);
 	}
 }

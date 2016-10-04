@@ -13,15 +13,16 @@ class PostList extends Widget
     const TYPE_RELATED = 'related';
 	
 	public $type;
-	public $posts = [];
 	
 	/**
      * Renders the menu.
      */
     public function run()
     {
+		$query = \app\models\Post::find();
 		switch ($this->type) {
 			case self::TYPE_RECENT:
+				$query->orderBy('updated_at DESC')->limit(5);
 				$view = 'recent';
 				break;
 
@@ -33,6 +34,6 @@ class PostList extends Widget
 				$view = 'recent';
 				break;
 		}
-		return $this->render("post-list/$view", ['posts'=>$this->posts]);
+		return $this->render("post-list/$view", ['models'=>$query->all()]);
     }   
 }
