@@ -99,15 +99,16 @@ class Helper {
 		$watermarkFile = $setting['watermarkFile'];
 		
 		// load image from disk
-		$image_type = exif_imagetype($srcImg);
+		$image_type = pathinfo($srcImg, PATHINFO_EXTENSION);
 		switch ($image_type) {
-			case IMAGETYPE_GIF: 
+			case 'gif': 
 				$old = imagecreatefromgif($srcImg); 
 				break;
-			case IMAGETYPE_JPEG: 
-				$old = self::loadJpeg($srcImg);  
+			case 'jpg': 
+			case 'jpeg': 
+				$old = imagecreatefromjpeg($srcImg);  
 				break;
-			case IMAGETYPE_PNG: 
+			case 'png': 
 				$old = imagecreatefrompng($srcImg); 
 				break;
 			default: 
@@ -115,19 +116,21 @@ class Helper {
 				break;
 		}
 		// auto rotate image
-		$exif = @exif_read_data($srcImg);
-		$white = imagecolorallocate($old, 255, 255, 255);
-		if(!empty($exif['Orientation'])) {
-			switch($exif['Orientation']) {
-				case 8:
-					$old = imagerotate($old,90,$white);
-					break;
-				case 3:
-					$old = imagerotate($old,180,$white);
-					break;
-				case 6:
-					$old = imagerotate($old,-90,$white);
-					break;
+		if ( function_exists('exif_read_data') ) {
+			$exif = @exif_read_data($srcImg);
+			$white = imagecolorallocate($old, 255, 255, 255);
+			if(!empty($exif['Orientation'])) {
+				switch($exif['Orientation']) {
+					case 8:
+						$old = imagerotate($old,90,$white);
+						break;
+					case 3:
+						$old = imagerotate($old,180,$white);
+						break;
+					case 6:
+						$old = imagerotate($old,-90,$white);
+						break;
+				}
 			}
 		}
 		$oldWidth = imagesx($old);
@@ -180,13 +183,14 @@ class Helper {
 		
 		// save image to disk
 		switch ($image_type) {
-			case 1: 
+			case 'gif': 
 				$old = imagegif($new, $dstImg);
 				break;
-			case 2: 
+			case 'jpg': 
+			case 'jpeg': 
 				$old = imagejpeg($new, $dstImg);
 				break;
-			case 3: 
+			case 'png': 
 				$old = imagepng($new, $dstImg); 
 				break;
 			default: 
