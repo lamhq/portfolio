@@ -19,7 +19,7 @@ $config = [
 			'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host=localhost;dbname=portfolio',
 			'username' => 'root',
-			'password' => '',
+			'password' => 'root',
 			'charset' => 'utf8',
 			'tablePrefix' => 'my_',
 			'enableSchemaCache' => YII_ENV_PROD,
